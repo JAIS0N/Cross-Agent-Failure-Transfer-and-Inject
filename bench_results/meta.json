@@ -1,0 +1,20 @@
+{
+  "fake": false,
+  "models": [
+    "qwen2.5:3b",
+    "qwen2.5:7b",
+    "qwen2.5:14b",
+    "llama3.1:8b"
+  ],
+  "level": "mid",
+  "repeats": 3,
+  "seconds": 3988.3,
+  "scenarios": [
+    "perm_denied",
+    "notfound_dir",
+    "rate_limit",
+    "quota",
+    "missing_table"
+  ],
+  "timestamp": "2026-09-21 12:56:53"
+}

@@ -1,1 +1,9 @@
 whoandwhen/Agents_Failure_Attribution/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+bench_log*.txt
+waw_log.txt
+git_push_log.txt
+_commit_msg.txt

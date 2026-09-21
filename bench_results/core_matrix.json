@@ -1,0 +1,518 @@
+[
+  {
+    "model": "qwen2.5:3b",
+    "mode": "off",
+    "n_success": 15,
+    "n_scenarios": 15,
+    "failures": 44,
+    "repeated_peer_failures": 12,
+    "warnings_delivered": 0,
+    "ignored_warnings": 0,
+    "total_tokens": 85077,
+    "error": null,
+    "success_rate": 1.0,
+    "shadow": {
+      "precision": 1.0,
+      "recall": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 44
+    },
+    "repeats": 3,
+    "per_scenario": {
+      "perm_denied": {
+        "success": 3,
+        "n": 3
+      },
+      "notfound_dir": {
+        "success": 3,
+        "n": 3
+      },
+      "rate_limit": {
+        "success": 3,
+        "n": 3
+      },
+      "quota": {
+        "success": 3,
+        "n": 3
+      },
+      "missing_table": {
+        "success": 3,
+        "n": 3
+      }
+    }
+  },
+  {
+    "model": "qwen2.5:3b",
+    "mode": "shadow",
+    "n_success": 15,
+    "n_scenarios": 15,
+    "failures": 45,
+    "repeated_peer_failures": 12,
+    "warnings_delivered": 0,
+    "ignored_warnings": 0,
+    "total_tokens": 85089,
+    "error": null,
+    "success_rate": 1.0,
+    "shadow": {
+      "precision": 1.0,
+      "recall": 0.26666666666666666,
+      "tp": 12,
+      "fp": 0,
+      "fn": 33
+    },
+    "repeats": 3,
+    "per_scenario": {
+      "perm_denied": {
+        "success": 3,
+        "n": 3
+      },
+      "notfound_dir": {
+        "success": 3,
+        "n": 3
+      },
+      "rate_limit": {
+        "success": 3,
+        "n": 3
+      },
+      "quota": {
+        "success": 3,
+        "n": 3
+      },
+      "missing_table": {
+        "success": 3,
+        "n": 3
+      }
+    }
+  },
+  {
+    "model": "qwen2.5:3b",
+    "mode": "inject",
+    "n_success": 15,
+    "n_scenarios": 15,
+    "failures": 33,
+    "repeated_peer_failures": 0,
+    "warnings_delivered": 15,
+    "ignored_warnings": 0,
+    "total_tokens": 88461,
+    "error": null,
+    "success_rate": 1.0,
+    "shadow": {
+      "precision": 1.0,
+      "recall": 0.3125,
+      "tp": 15,
+      "fp": 0,
+      "fn": 33
+    },
+    "repeats": 3,
+    "per_scenario": {
+      "perm_denied": {
+        "success": 3,
+        "n": 3
+      },
+      "notfound_dir": {
+        "success": 3,
+        "n": 3
+      },
+      "rate_limit": {
+        "success": 3,
+        "n": 3
+      },
+      "quota": {
+        "success": 3,
+        "n": 3
+      },
+      "missing_table": {
+        "success": 3,
+        "n": 3
+      }
+    }
+  },
+  {
+    "model": "qwen2.5:7b",
+    "mode": "off",
+    "n_success": 12,
+    "n_scenarios": 15,
+    "failures": 51,
+    "repeated_peer_failures": 20,
+    "warnings_delivered": 0,
+    "ignored_warnings": 0,
+    "total_tokens": 101861,
+    "error": null,
+    "success_rate": 0.8,
+    "shadow": {
+      "precision": 1.0,
+      "recall": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 51
+    },
+    "repeats": 3,
+    "per_scenario": {
+      "perm_denied": {
+        "success": 3,
+        "n": 3
+      },
+      "notfound_dir": {
+        "success": 0,
+        "n": 3
+      },
+      "rate_limit": {
+        "success": 3,
+        "n": 3
+      },
+      "quota": {
+        "success": 3,
+        "n": 3
+      },
+      "missing_table": {
+        "success": 3,
+        "n": 3
+      }
+    }
+  },
+  {
+    "model": "qwen2.5:7b",
+    "mode": "shadow",
+    "n_success": 12,
+    "n_scenarios": 15,
+    "failures": 51,
+    "repeated_peer_failures": 21,
+    "warnings_delivered": 0,
+    "ignored_warnings": 0,
+    "total_tokens": 105777,
+    "error": null,
+    "success_rate": 0.8,
+    "shadow": {
+      "precision": 1.0,
+      "recall": 0.4117647058823529,
+      "tp": 21,
+      "fp": 0,
+      "fn": 30
+    },
+    "repeats": 3,
+    "per_scenario": {
+      "perm_denied": {
+        "success": 3,
+        "n": 3
+      },
+      "notfound_dir": {
+        "success": 0,
+        "n": 3
+      },
+      "rate_limit": {
+        "success": 3,
+        "n": 3
+      },
+      "quota": {
+        "success": 3,
+        "n": 3
+      },
+      "missing_table": {
+        "success": 3,
+        "n": 3
+      }
+    }
+  },
+  {
+    "model": "qwen2.5:7b",
+    "mode": "inject",
+    "n_success": 15,
+    "n_scenarios": 15,
+    "failures": 35,
+    "repeated_peer_failures": 0,
+    "warnings_delivered": 19,
+    "ignored_warnings": 0,
+    "total_tokens": 109843,
+    "error": null,
+    "success_rate": 1.0,
+    "shadow": {
+      "precision": 0.9,
+      "recall": 0.33962264150943394,
+      "tp": 18,
+      "fp": 2,
+      "fn": 35
+    },
+    "repeats": 3,
+    "per_scenario": {
+      "perm_denied": {
+        "success": 3,
+        "n": 3
+      },
+      "notfound_dir": {
+        "success": 3,
+        "n": 3
+      },
+      "rate_limit": {
+        "success": 3,
+        "n": 3
+      },
+      "quota": {
+        "success": 3,
+        "n": 3
+      },
+      "missing_table": {
+        "success": 3,
+        "n": 3
+      }
+    }
+  },
+  {
+    "model": "qwen2.5:14b",
+    "mode": "off",
+    "n_success": 10,
+    "n_scenarios": 15,
+    "failures": 55,
+    "repeated_peer_failures": 12,
+    "warnings_delivered": 0,
+    "ignored_warnings": 0,
+    "total_tokens": 87787,
+    "error": null,
+    "success_rate": 0.6666666666666666,
+    "shadow": {
+      "precision": 1.0,
+      "recall": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 55
+    },
+    "repeats": 3,
+    "per_scenario": {
+      "perm_denied": {
+        "success": 3,
+        "n": 3
+      },
+      "notfound_dir": {
+        "success": 0,
+        "n": 3
+      },
+      "rate_limit": {
+        "success": 3,
+        "n": 3
+      },
+      "quota": {
+        "success": 1,
+        "n": 3
+      },
+      "missing_table": {
+        "success": 3,
+        "n": 3
+      }
+    }
+  },
+  {
+    "model": "qwen2.5:14b",
+    "mode": "shadow",
+    "n_success": 11,
+    "n_scenarios": 15,
+    "failures": 60,
+    "repeated_peer_failures": 21,
+    "warnings_delivered": 0,
+    "ignored_warnings": 0,
+    "total_tokens": 91298,
+    "error": null,
+    "success_rate": 0.7333333333333333,
+    "shadow": {
+      "precision": 1.0,
+      "recall": 0.35,
+      "tp": 21,
+      "fp": 0,
+      "fn": 39
+    },
+    "repeats": 3,
+    "per_scenario": {
+      "perm_denied": {
+        "success": 3,
+        "n": 3
+      },
+      "notfound_dir": {
+        "success": 0,
+        "n": 3
+      },
+      "rate_limit": {
+        "success": 3,
+        "n": 3
+      },
+      "quota": {
+        "success": 2,
+        "n": 3
+      },
+      "missing_table": {
+        "success": 3,
+        "n": 3
+      }
+    }
+  },
+  {
+    "model": "qwen2.5:14b",
+    "mode": "inject",
+    "n_success": 9,
+    "n_scenarios": 15,
+    "failures": 43,
+    "repeated_peer_failures": 0,
+    "warnings_delivered": 16,
+    "ignored_warnings": 0,
+    "total_tokens": 89536,
+    "error": null,
+    "success_rate": 0.6,
+    "shadow": {
+      "precision": 1.0,
+      "recall": 0.2711864406779661,
+      "tp": 16,
+      "fp": 0,
+      "fn": 43
+    },
+    "repeats": 3,
+    "per_scenario": {
+      "perm_denied": {
+        "success": 3,
+        "n": 3
+      },
+      "notfound_dir": {
+        "success": 0,
+        "n": 3
+      },
+      "rate_limit": {
+        "success": 3,
+        "n": 3
+      },
+      "quota": {
+        "success": 0,
+        "n": 3
+      },
+      "missing_table": {
+        "success": 3,
+        "n": 3
+      }
+    }
+  },
+  {
+    "model": "llama3.1:8b",
+    "mode": "off",
+    "n_success": 12,
+    "n_scenarios": 15,
+    "failures": 48,
+    "repeated_peer_failures": 12,
+    "warnings_delivered": 0,
+    "ignored_warnings": 0,
+    "total_tokens": 66007,
+    "error": null,
+    "success_rate": 0.8,
+    "shadow": {
+      "precision": 1.0,
+      "recall": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 48
+    },
+    "repeats": 3,
+    "per_scenario": {
+      "perm_denied": {
+        "success": 3,
+        "n": 3
+      },
+      "notfound_dir": {
+        "success": 0,
+        "n": 3
+      },
+      "rate_limit": {
+        "success": 3,
+        "n": 3
+      },
+      "quota": {
+        "success": 3,
+        "n": 3
+      },
+      "missing_table": {
+        "success": 3,
+        "n": 3
+      }
+    }
+  },
+  {
+    "model": "llama3.1:8b",
+    "mode": "shadow",
+    "n_success": 12,
+    "n_scenarios": 15,
+    "failures": 48,
+    "repeated_peer_failures": 12,
+    "warnings_delivered": 0,
+    "ignored_warnings": 0,
+    "total_tokens": 66282,
+    "error": null,
+    "success_rate": 0.8,
+    "shadow": {
+      "precision": 0.8,
+      "recall": 0.25,
+      "tp": 12,
+      "fp": 3,
+      "fn": 36
+    },
+    "repeats": 3,
+    "per_scenario": {
+      "perm_denied": {
+        "success": 3,
+        "n": 3
+      },
+      "notfound_dir": {
+        "success": 0,
+        "n": 3
+      },
+      "rate_limit": {
+        "success": 3,
+        "n": 3
+      },
+      "quota": {
+        "success": 3,
+        "n": 3
+      },
+      "missing_table": {
+        "success": 3,
+        "n": 3
+      }
+    }
+  },
+  {
+    "model": "llama3.1:8b",
+    "mode": "inject",
+    "n_success": 8,
+    "n_scenarios": 15,
+    "failures": 39,
+    "repeated_peer_failures": 3,
+    "warnings_delivered": 15,
+    "ignored_warnings": 3,
+    "total_tokens": 76400,
+    "error": null,
+    "success_rate": 0.5333333333333333,
+    "shadow": {
+      "precision": 0.7142857142857143,
+      "recall": 0.29411764705882354,
+      "tp": 15,
+      "fp": 6,
+      "fn": 36
+    },
+    "repeats": 3,
+    "per_scenario": {
+      "perm_denied": {
+        "success": 2,
+        "n": 3
+      },
+      "notfound_dir": {
+        "success": 0,
+        "n": 3
+      },
+      "rate_limit": {
+        "success": 3,
+        "n": 3
+      },
+      "quota": {
+        "success": 3,
+        "n": 3
+      },
+      "missing_table": {
+        "success": 0,
+        "n": 3
+      }
+    }
+  }
+]
