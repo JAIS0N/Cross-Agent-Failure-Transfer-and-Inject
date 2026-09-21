@@ -1,0 +1,22 @@
+name: missing_dir
+failure_mode: NotFound
+world:
+  dirs: ["/", "/tmp"]
+agents:
+  - id: FileOps
+    plan:
+      - tool: write_file
+        args: {path: "/reports/q1.txt", content: "q1"}
+        on_warn: {tool: write_file, args: {path: "/tmp/q1.txt", content: "q1"}}
+  - id: Coder
+    plan:
+      - tool: write_file
+        args: {path: "/reports/q2.txt", content: "q2"}
+        on_warn: {tool: write_file, args: {path: "/tmp/q2.txt", content: "q2"}}
+  - id: Planner
+    plan:
+      - tool: write_file
+        args: {path: "/reports/q3.txt", content: "q3"}
+        on_warn: {tool: write_file, args: {path: "/tmp/q3.txt", content: "q3"}}
+success:
+  any_files: ["/tmp/q3.txt", "/reports/q3.txt"]

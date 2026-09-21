@@ -1,0 +1,22 @@
+name: missing_table
+failure_mode: NotFound
+world:
+  dirs: ["/"]
+  tables: ["orders"]
+agents:
+  - id: Coder
+    plan:
+      - tool: query_db
+        args: {table: "customers", query: "select 1"}
+        on_warn: {tool: query_db, args: {table: "orders", query: "select 1"}}
+  - id: Planner
+    plan:
+      - tool: query_db
+        args: {table: "customers", query: "select 2"}
+        on_warn: {tool: query_db, args: {table: "orders", query: "select 2"}}
+  - id: FileOps
+    plan:
+      - tool: query_db
+        args: {table: "orders", query: "select 3"}
+success:
+  db_queries_ok: 1

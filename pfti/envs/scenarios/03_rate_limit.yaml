@@ -1,0 +1,20 @@
+name: rate_limit_conflict
+failure_mode: RateLimited
+world:
+  dirs: ["/"]
+  api_budget: {"/render": 1, "/render-batch": 5}
+agents:
+  - id: Coder
+    plan:
+      - tool: call_api
+        args: {endpoint: "/render", payload: "job1"}
+      - tool: call_api
+        args: {endpoint: "/render", payload: "job2"}
+        on_warn: {tool: call_api, args: {endpoint: "/render-batch", payload: "job2"}}
+  - id: FileOps
+    plan:
+      - tool: call_api
+        args: {endpoint: "/render", payload: "job3"}
+        on_warn: {tool: call_api, args: {endpoint: "/render-batch", payload: "job3"}}
+success:
+  api_calls_ok: 2

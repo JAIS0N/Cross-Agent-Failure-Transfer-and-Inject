@@ -1,0 +1,19 @@
+name: disk_quota
+failure_mode: QuotaExceeded
+world:
+  dirs: ["/", "/data"]
+  perm: {"/data": "rw"}
+  disk_quota: 40
+agents:
+  - id: FileOps
+    plan:
+      - tool: write_file
+        args: {path: "/data/big.bin", content: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"}
+        on_warn: {tool: write_file, args: {path: "/data/big.bin", content: "XX"}}
+  - id: Coder
+    plan:
+      - tool: write_file
+        args: {path: "/data/big2.bin", content: "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"}
+        on_warn: {tool: write_file, args: {path: "/data/big2.bin", content: "YY"}}
+success:
+  any_files: ["/data/big2.bin"]

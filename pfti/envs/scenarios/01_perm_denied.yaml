@@ -1,0 +1,22 @@
+name: perm_denied_basic
+failure_mode: PermissionDenied
+world:
+  dirs: ["/", "/data", "/tmp"]
+  perm: {"/data": "ro", "/tmp": "rw"}
+agents:
+  - id: FileOps
+    plan:
+      - tool: write_file
+        args: {path: "/data/report.csv", content: "q1 numbers row row row"}
+        on_warn: {tool: write_file, args: {path: "/tmp/report.csv", content: "q1 numbers row row row"}}
+  - id: Coder
+    plan:
+      - tool: write_file
+        args: {path: "/data/summary.txt", content: "exec summary"}
+        on_warn: {tool: write_file, args: {path: "/tmp/summary.txt", content: "exec summary"}}
+  - id: Planner
+    plan:
+      - tool: write_file
+        args: {path: "/tmp/notes.txt", content: "meeting notes"}
+success:
+  any_files: ["/tmp/summary.txt", "/data/summary.txt"]
