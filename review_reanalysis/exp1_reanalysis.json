@@ -1,0 +1,70 @@
+{
+ "n_success": [
+  49,
+  50,
+  47
+ ],
+ "failures": [
+  198,
+  204,
+  150
+ ],
+ "repeated_peer_failures": [
+  56,
+  66,
+  3
+ ],
+ "warnings_delivered": [
+  0,
+  0,
+  65
+ ],
+ "ignored_warnings": [
+  0,
+  0,
+  3
+ ],
+ "total_tokens": [
+  340732,
+  348446,
+  364240
+ ],
+ "gaps": {
+  "qwen2.5:3b": {
+   "succ": 0,
+   "fail": 1,
+   "rp": 0,
+   "tok": 0.00014104869706266088
+  },
+  "qwen2.5:7b": {
+   "succ": 0,
+   "fail": 0,
+   "rp": 1,
+   "tok": 0.03844454698068937
+  },
+  "qwen2.5:14b": {
+   "succ": 1,
+   "fail": 5,
+   "rp": 9,
+   "tok": 0.03999453222003258
+  },
+  "llama3.1:8b": {
+   "succ": 0,
+   "fail": 0,
+   "rp": 0,
+   "tok": 0.0041662247943399944
+  }
+ },
+ "bad_attempts": [
+  198,
+  207,
+  215
+ ],
+ "fp_feasible": {
+  "perm_denied": 0,
+  "notfound_dir": 0,
+  "rate_limit": 0,
+  "quota": 6,
+  "missing_table": 0
+ }
+}

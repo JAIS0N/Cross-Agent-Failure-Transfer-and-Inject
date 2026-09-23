@@ -19,9 +19,19 @@ exitcode from AutoGen's Computer_terminal):
   3. Actually EXECUTE both regenerated code blocks as a subprocess (short
      timeout, isolated temp dir) and classify the real output with the
      SAME error-class extractor whoandwhen.py uses on the original data.
-  4. "Repeated" = the regenerated code's real execution output still
-     subsumption-matches the ORIGINAL historical failure's signature
-     (same Matcher used throughout PFTI, not string equality).
+  4. "Repeated" = the regenerated code's real execution output fails with
+     the same tool + error class as the ORIGINAL historical failure (see
+     grade_execution for why the leveled Matcher is not used for this).
+
+  KNOWN LIMITATIONS (found in review, kept for reproducibility of the first
+  run; the redesigned study is waw_repro.py):
+    * find_transfer_points uses Matcher(level='mid'), which reduces a
+      Who&When signature to (tool=code_exec), so the "matching" earlier
+      failure usually has a DIFFERENT error class (31 of 36 cases).
+    * the earlier failure is from the same trajectory and is almost always
+      still inside the replayed context (34 of 36), and exclude_agent=None,
+      so the warning is mostly redundant within-trajectory memory rather
+      than peer transfer.
 
 This is real code, actually executed, replaying a task a real agent
 genuinely failed on and a human annotator confirmed -- not a synthetic
@@ -187,12 +197,18 @@ def execute_code(lang: str, code: str, timeout: int = 12) -> str:
     with tempfile.TemporaryDirectory() as td:
         ext = "py" if lang == "python" else "sh"
         path = os.path.join(td, f"snippet.{ext}")
-        with open(path, "w") as f:
+        # utf-8 explicitly: on Windows the default (cp1252) crashes on
+        # characters like '\u2248' in model code (1 of 144 rows in the
+        # first run was lost this way).
+        with open(path, "w", encoding="utf-8") as f:
             f.write(code)
         cmd = [sys.executable, path] if lang == "python" else ["bash", path]
         try:
             p = subprocess.run(cmd, cwd=td, capture_output=True, text=True,
-                               timeout=timeout)
+                               timeout=timeout, encoding="utf-8",
+                               errors="replace",
+                               env={**os.environ, "PYTHONIOENCODING": "utf-8",
+                                    "PYTHONUTF8": "1"})
             rc, out, err = p.returncode, p.stdout, p.stderr
         except subprocess.TimeoutExpired:
             rc, out, err = 124, "", "TimeoutExpired: code did not finish in time"

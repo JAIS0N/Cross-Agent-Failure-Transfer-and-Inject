@@ -4,6 +4,8 @@ __pycache__/
 *.pyc
 .pytest_cache/
 bench_log*.txt
+bench_v2_log.txt
 waw_log.txt
+waw_repro_log.txt
 git_push_log.txt
 _commit_msg.txt
