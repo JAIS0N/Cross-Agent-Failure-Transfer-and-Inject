@@ -1,6 +1,9 @@
-# Responding to Prof. Hailu's review: what he asked, what we found, what changed
+# Latest Review
 
-This file explains the review so you can follow it in the code without relying on the .bat scripts. Line numbers refer to the files as they are in this commit.
+
+**Status (Sept 23):** every run the review called for is finished. §2 answers his points using the old results. §5 has the new results, §6 the story they add up to for the paper, and §7 what goes back to him.
+
+**Bottom line in one paragraph.** A peer warning reliably stops agents from *executing* a call that repeats an **environment-condition** failure (read-only folder, used-up quota, missing file). That holds in the testbed and, now, on real Who&When data (repeat rate 57% → 44%, p = 0.018). It does **not** help with logic bugs in the agent's own code. It does **not** make tasks succeed more often: agents avoid the known error and then usually fail another way. The only harm we found came from *how* the warning is delivered (llama3.1 breaks its tool-call format after one), not from what it says.
 
 ---
 
@@ -71,7 +74,9 @@ Any call that satisfies the line-195 condition also satisfies the line-140 match
 
 This happens because Ollama on a GPU isn't bit-for-bit reproducible even at temperature 0. For 14b the noise (5 failures) is almost half the inject effect (12 failures).
 
-### Point 4: the llama regression. **His guess is probably wrong. The harm seems to come from correct warnings.**
+### Point 4: the llama regression. **His guess was wrong. Settled by the new traces (§5.1): the harm came from how the warning is delivered, not from bad warnings.**
+
+*What follows is the reasoning done before the traces existed; it pointed the right way.*
 
 The old run saved only per-scenario success counts, not traces, so we can't read what llama actually did. What we *can* do is check, on the testbed itself, where a false-positive warning is even possible. `pfti/eval/reanalyze_exp1.py`, section 5, tries a grid of about 100 plausible calls in every scenario:
 
@@ -82,7 +87,7 @@ llama's regressions were in **missing_table (3/3 → 0/3)** and **perm_denied (3
 
 ### Point 5: minor points
 
-- Tokens under inject vs off: +4.0% (3b), +7.8% (7b), +2.0% (14b), **+15.7% (llama)**. He is right.
+- Tokens under inject vs off: +4.0% (3b), +7.8% (7b), +2.0% (14b), **+15.7% (llama)**. He is right. In the 11-scenario run it is +8% to +15% per model, +12% overall.
 - Construct validity: agreed. That is why V2 adds scenarios PFTI is *not* designed for (§3).
 - Routing: the new Exp 1 run skips it (`--no-routing`). Put it in an appendix or drop it.
 - Correction to his note: qwen2.5:7b also had 2 false positives under inject (precision 0.90), so llama is not the only model with them.
@@ -120,7 +125,7 @@ The same collapse affects the older static analysis in `pfti/eval/whoandwhen.py`
 
 ### Point 9: what to run next. **Built as he described.**
 
-The baseline problem is visible in our own data: in 29 of the 36 cases, **none** of the 4 models reproduced the historical error even once.
+The baseline problem is visible in our own data: in 29 of the 36 cases, **none** of the 4 models reproduced the historical error even once. The redesigned study has now been run; results in §5.3.
 
 ---
 
@@ -129,14 +134,16 @@ The baseline problem is visible in our own data: in 29 of the 36 cases, **none**
 | file | change | why |
 |---|---|---|
 | `pfti/bench/core_matrix.py` | New counters: `held_tp`/`held_fp` (was the held call really doomed?), `doomed_attempts`, `peer_doomed_attempts`/`peer_doomed_executed` (a different agent already failed with the same tool + error class, **per the oracle, not the matcher**). Optional transcripts. `world_events` (the world can change between agents). Malformed tool arguments no longer crash a whole cell. | Points 1, 2, 4 |
-| `pfti/bench/scenarios_llm.py` | `SCENARIOS_V2`: 3 adversarial false-positive scenarios (`prefix_collision`, `quota_small_ok`, `stale_ratelimit`), 1 control (`stale_perm_control`: the world changes in a way the signature *can* see, so PFTI should stay quiet), 2 reasoning-bug scenarios (`retired_endpoint`, `guess_dir`). The original 5 are unchanged. | Points 4, 5, 9 |
-| `pfti/bench/run_all.py` | `--scenarios v1/v2/all`, `--save-traces`, `--no-routing`; keeps per-run results for every metric. | Points 3, 4 |
+| `pfti/bench/scenarios_llm.py` | `SCENARIOS_V2`: 3 adversarial false-positive scenarios (`prefix_collision`, `quota_small_ok`, `stale_ratelimit`), 1 control (`stale_perm_control`: the world changes in a way the signature *can* see, so PFTI should stay quiet), 2 reasoning-bug scenarios (`retired_endpoint`, `guess_dir`). The original 5 are unchanged. **Fixed after the first v2 run:** the two reasoning scenarios could not be solved (`list_dir` lists files, not folders; `/v2/render` was unguessable), so each world now has a pointer file (`/README.txt`, `/api/ENDPOINTS.txt`). | Points 4, 5, 9 |
+| `pfti/bench/run_all.py` | `--scenarios v1/v2/all/reasoning`, `--save-traces`, `--no-routing`, `--parse-text-calls`; keeps per-run results for every metric. | Points 3, 4 |
+| `pfti/bench/core_matrix.py` (second change) | `parse_text_call`: counts tool calls a model writes as JSON text instead of a real call (`text_calls`), and with `--parse-text-calls` executes them, identically in every mode. | Point 4 |
 | `pfti/bench/trace_report.py` (new) | For each warning: was it right, and did the agent reroute, repeat or stop? Every regression (off succeeded, inject failed) is attributed to a false-positive warning, correct warnings only, or no warning (noise). | Point 4 |
 | `pfti/eval/whoandwhen_llm.py` | UTF-8 fix; docstring corrected and known limitations recorded. Case selection unchanged so the first run stays reproducible. | Point 8, bug |
 | `pfti/eval/waw_repro.py` (new) | The redesigned Exp 2 (see below). Resumable. | Point 9 |
-| `pfti/eval/waw_repro_analyze.py` (new) | Paired case-level test, GEE clustered by log, mixed model (random case + log), cluster bootstrap, ITT, moderators. | Points 6, 7 |
+| `pfti/eval/waw_repro_analyze.py` (new) | Paired case-level test, GEE clustered by log, mixed model (random case + log), cluster bootstrap, ITT, moderators. The primary outcome and tests were fixed here **before** the real run. | Points 6, 7 |
+| `pfti/eval/waw_repro_robustness.py` (new) | Stress tests of the Who&When result: how "no runnable code" is counted, per-model vs per-case units, leave-one-model-out, leave-one-error-class-out, what happened instead of the repeat. Output: `review_reanalysis/waw_repro_robustness.md`. | §5.3 |
 | `pfti/eval/reanalyze_exp1.py`, `reanalyze_exp2.py` (new) | Re-analysis of the **existing** results; output is in `review_reanalysis/`. | Points 1–8 |
-| `pfti/tests/test_review_fixes.py` (new) | 13 offline tests for all of the above. | |
+| `pfti/tests/test_review_fixes.py` (new) | 16 offline tests for all of the above. | |
 
 ### How the redesigned Exp 2 works (`pfti/eval/waw_repro.py`)
 
@@ -148,26 +155,104 @@ The baseline problem is visible in our own data: in 29 of the 36 cases, **none**
 
 ---
 
-## 4. What to run, in what order
+## 4. What was run (all finished)
 
-Run these from the repo folder, one at a time (they share the GPU).
+| date | launcher | what it did | output |
+|---|---|---|---|
+| Sep 22 | `run_review_reanalysis.bat` | re-analysis of the old results, no models | `review_reanalysis/exp1_reanalysis.md`, `exp2_reanalysis.md` |
+| Sep 22 | `run_exp1_v2.bat` | 11 scenarios × off/shadow/inject × 4 models, traces saved (41 min) | `bench_results_v2/` (`summary.md`, `trace_report.md`, `traces/`) |
+| Sep 22 | `run_exp1_v2_followup.bat` | (A) the 2 fixed reasoning scenarios, 4 models; (B) llama on all 11 with `--parse-text-calls` (14 min) | `bench_results_v2_reasoning/`, `bench_results_v2_llama_textcalls/` |
+| Sep 23 | `run_waw_repro_7b.bat`, then `run_waw_repro.bat` | reproduction-filtered Who&When study, 7b first, then the other 3 (~8 h total) | `waw_repro_results/` (`summary.md`, `waw_repro_cases.png`, `results.jsonl`) |
+| Sep 23 | `python -m pfti.eval.waw_repro_robustness` | stress tests of the Who&When result, no models | `review_reanalysis/waw_repro_robustness.md` |
 
-| order | file | needs Ollama? | time | read afterwards |
-|---|---|---|---|---|
-| 1 | `run_review_reanalysis.bat` | no | ~1 min | `review_reanalysis\exp1_reanalysis.md`, `exp2_reanalysis.md` (already included in this commit) |
-| 2 | `run_exp1_v2.bat` | yes | ~45–60 min | `bench_results_v2\summary.md`, `bench_results_v2\trace_report.md` ← answers the llama question |
-| 3 | `run_waw_repro.bat` | yes | ~2 h per model, 6–9 h for all 4, best overnight | `waw_repro_results\summary.md`, `waw_repro_cases.png`. If it stops, run it again and it resumes. |
-
-What to look for when they finish:
-
-- **trace_report.md:** in the *Regressions* table, the `cause` column. If llama's missing_table rows say "after correct warning(s) only", §2 point 4 is confirmed. The *agent's last words* column shows how it misread the warning.
-- **Exp 1 v2 summary:** adversarial scenarios, i.e. how often models *repeat the call anyway* after a wrong warning (good) versus divert (harm). Control scenario: warnings should be 0.
-- **waw_repro summary:** first *Screening* (how many cases per model reproduce at all). Then the *Phase 2* table and the *Clustered models* table.
+All runs: one repeat at temperature 0 for Experiment 1 (the professor's point: at T=0 scenarios, not repeats, add information); temperature 0.7 with 6 samples per case per arm for Experiment 2.
 
 ---
 
-## 5. What goes back to the professor, and when
+## 5. What the new runs found
 
-Now, if you want: the re-analysis in §2 (points 1–8), plus the two new flaws we found ourselves (the collapsed matcher in the Exp 2 case selection, and the inflated 26% / 65% static numbers). Being upfront about those will count in your favour.
+### 5.1 Experiment 1, 11 scenarios (`bench_results_v2/`)
 
-After runs 2 and 3: the V2 scenario and harm results, and the reproduction-filtered Exp 2.
+**The original 5 scenarios reproduced last week's pattern exactly.** 7b is again fixed by warnings on `notfound_dir`; llama again fails `missing_table` under inject; 14b doesn't change.
+
+**The mechanism, measured without circularity** (pooled over 4 models; "doomed" = the oracle says the call would fail, counted when proposed, in every mode):
+
+| | off | shadow | inject |
+|---|--:|--:|--:|
+| doomed calls **proposed** | 165 | 165 | 162 |
+| ...of which repeat a failure a *different* agent already had (oracle-defined) | 72 | 77 | 76 |
+| ...and were actually **executed** | 72 | 77 | **37** |
+| executed tool failures | 165 | 165 | **123 (−25%)** |
+| tasks solved (9 working scenarios × 4 models = 36) | 32 | 32 | 31 |
+| tokens | 266,679 | 266,994 | 298,576 (+12%) |
+
+In plain words: agents *propose* just as many doomed calls with warnings on. PFTI stops about half of the peer-repeats from *running*. Task success does not change. The shadow column shows the noise level (77 vs 72).
+
+**Wrong warnings (the 3 trap scenarios):** 9 false-positive warnings were delivered (48 warnings in total, 39 correct). The Qwen models always either re-sent the call or found another route, and never lost a task because of a wrong warning. llama lost one (`stale_ratelimit`). Caveat for the paper: each trap task *tells* the agent the situation changed ("the rate limit reset a minute ago"), which makes a wrong warning easier to see through than it would be in real use.
+
+**Control scenario:** 0 warnings for all 4 models, as intended (a state-aware signature stays quiet when the world visibly changed).
+
+**The llama question, answered from the traces.** After a warning, llama usually makes the right decision ("the accounts table doesn't exist, I'll query users instead") but then writes the tool call as text instead of making it, and invents a result. Tool calls written as text: 10 with warnings on vs 5 with them off; the Qwen models: 0. The follow-up run (`bench_results_v2_llama_textcalls/`) executes such calls, in every mode:
+
+| llama3.1:8b, 11 scenarios, text calls accepted | off | shadow | inject |
+|---|--:|--:|--:|
+| tasks solved | 10/11 | 10/11 | 10/11 |
+| peer-repeat calls proposed / executed | 6 / 6 | 6 / 6 | 7 / 1 |
+
+The regressions disappear. So llama was hurt by *how* the warning reaches it (as a tool result, which pushes it out of native tool calling), not by *what* it says. The professor's guess (false positives) was wrong: llama's regressions were in scenarios where a false positive is impossible (§2, point 4). Side effect: accepting text calls also helps llama with no warnings (10/11 vs 8/11), so the old llama numbers understated it in every mode.
+
+### 5.2 The fixed reasoning scenarios (`bench_results_v2_reasoning/`)
+
+No signal for PFTI. qwen2.5:7b and 14b read the pointer file first and solved both, in every mode, without failing, so there was nothing to prevent. qwen2.5:3b failed both in every mode, and warnings didn't help (its tokens went from 24.6k to 65.7k). llama solved 1 of 2 in every mode. Honest takeaway: capable models checked before acting, so the "act before checking" failure mostly didn't occur.
+
+### 5.3 Experiment 2, reproduction-filtered Who&When (`waw_repro_results/`)
+
+**Screening.** 90 real code-failure moments, 6 samples each without a warning (T = 0.7):
+
+| model | baseline repeat rate | cases kept (≥ 2/6) |
+|---|--:|--:|
+| qwen2.5:3b | 9% | 11 |
+| qwen2.5:7b | 11% | 13 |
+| qwen2.5:14b | 8% | 10 |
+| llama3.1:8b | 6% | 5 |
+
+**Test** (fresh samples on kept cases; 39 model×case units, 21 distinct cases, 18 logs):
+
+| model | repeats the historical error: off → inject |
+|---|--:|
+| qwen2.5:3b | 50% → 32% |
+| qwen2.5:7b | 58% → 42% |
+| qwen2.5:14b | 68% → 57% |
+| llama3.1:8b | 50% → 50% (only 5 cases) |
+| **all** | **57% → 44%** |
+
+Pre-specified primary test (GEE clustered by log): **OR 0.58 [0.37, 0.91], p = 0.018**. 25 units improved, 10 got worse, 4 tied (sign test p = 0.017). Cluster bootstrap: −13 points [−23, −2]. The fresh-sample design mattered: in screening the kept cases repeated 69% of the time, in fresh samples 58% (7b), exactly the winner's-curse inflation it was built to avoid.
+
+**Stress tests** (`review_reanalysis/waw_repro_robustness.md`):
+
+| check | result |
+|---|---|
+| count "no runnable code" as a repeat (strict) | 63% → 53%, p = 0.049 (holds, barely) |
+| graded samples only | 61% → 48%, p = 0.033 (holds) |
+| drop one model at a time | p = 0.002 to 0.074 (holds, weakens without 3b) |
+| count each *distinct case* once | 12 better / 6 worse, p = 0.08 to 0.24 (**not significant**) |
+| drop FileNotFoundError cases | 51% → 48%, p = 0.61 (**effect disappears**) |
+| *any* failure, not just the same error | 82% → 79%, p = 0.34 (**no change**) |
+
+What the three bold rows mean:
+- **The effect is one error type.** Missing-file errors drop from 67% to 39%. Every other error type together: 51% → 48%. Logic bugs (AttributeError, KeyError) get slightly *more* repeats with the warning.
+- **The warning changes which error happens, not whether the code works.** On the missing-file cases, 31% of warned answers failed with a *different* error (vs 11% without) and 26% ran OK (vs 19%).
+- **The sample is still small.** Counted per distinct case, it is not significant. And all kept cases come from the automatically generated half of Who&When; none from the hand-crafted half.
+
+---
+
+## 6. The story for the paper
+
+1. **Mechanism (strong, reproduced across runs and datasets).** PFTI stops agents from *executing* calls that repeat a peer's **environment-condition** failure: about half of such calls in the testbed, and a 13-point drop in same-error repeats on real Who&When failures (p = 0.018, carried by missing-file errors).
+2. **No gain in task success (consistent everywhere).** Testbed: 32 vs 31 of 36. Who&When: any-failure 82% vs 79%. Agents avoid the known error and then fail differently.
+3. **Scope (construct validity, now with evidence).** It works for failures caused by the environment, which is what it was designed for; it does not help, and may slightly hurt, with logic bugs in the agent's own code.
+4. **Harm comes from delivery, not content.** Wrong warnings rarely hurt when the task context contradicts them; the one real harm was llama's tool-call format breaking after a warning, and it vanishes when text calls are accepted.
+5. **Cost.** About +12% tokens; much more for a weak model that can't use the warning.
+6. **Honest corrections to earlier claims.** The "56 → 3 (−95%)" headline is circular; the old Who&When static figures (26% transfer opportunity, 65% coverage) overstate, and the first real-data replay's null result was caused by a case-selection bug (§2, point 8).
+
+---
