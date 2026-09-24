@@ -1,0 +1,20 @@
+{
+  "fake": false,
+  "models": [
+    "qwen2.5:3b",
+    "qwen2.5:7b",
+    "qwen2.5:14b",
+    "llama3.1:8b"
+  ],
+  "level": "mid",
+  "repeats": 1,
+  "seconds": 714.3,
+  "scenario_set": "reasoning",
+  "scenarios": [
+    "retired_endpoint",
+    "guess_dir"
+  ],
+  "save_traces": true,
+  "parse_text_calls": false,
+  "timestamp": "2026-09-22 21:37:41"
+}

@@ -1,0 +1,931 @@
+{
+ "model": "qwen2.5:7b",
+ "mode": "shadow",
+ "scenario": "retired_endpoint",
+ "repeat": 0,
+ "success": false,
+ "failures": 10,
+ "repeated_peer_failures": 4,
+ "warnings_delivered": 0,
+ "ignored_warnings": 0,
+ "total_tokens": 13568,
+ "held_tp": 0,
+ "held_fp": 0,
+ "doomed_attempts": 10,
+ "peer_doomed_attempts": 7,
+ "peer_doomed_executed": 7,
+ "events": [
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/shadow]",
+   "step": 1,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "render/v2",
+    "payload": "job1"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render/v2"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/shadow]",
+   "step": 1,
+   "agent": "Planner",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "render/v2",
+    "payload": "job1"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render/v2"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/shadow]",
+   "step": 2,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "render",
+    "payload": "job1"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/shadow]",
+   "step": 2,
+   "agent": "Planner",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "render",
+    "payload": "job1"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/shadow]",
+   "step": 3,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "payload": "job1",
+    "endpoint": "render"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/shadow]",
+   "step": 3,
+   "agent": "Planner",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "payload": "job1",
+    "endpoint": "render"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/shadow]",
+   "step": 4,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "render/v2",
+    "payload": "job2"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render/v2"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": true,
+   "warned": false,
+   "matched_record_id": [
+    0
+   ],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/shadow]",
+   "step": 4,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "render/v2",
+    "payload": "job2"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render/v2"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/shadow]",
+   "step": 5,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "render/v1",
+    "payload": "job2"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render/v1"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/shadow]",
+   "step": 5,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "render/v1",
+    "payload": "job2"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render/v1"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/shadow]",
+   "step": 6,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "payload": "job2",
+    "endpoint": "render"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": true,
+   "warned": false,
+   "matched_record_id": [
+    1
+   ],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/shadow]",
+   "step": 6,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "payload": "job2",
+    "endpoint": "render"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/shadow]",
+   "step": 7,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "render/v2",
+    "payload": "job3"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render/v2"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": true,
+   "warned": false,
+   "matched_record_id": [
+    0,
+    2
+   ],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/shadow]",
+   "step": 7,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "render/v2",
+    "payload": "job3"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render/v2"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/shadow]",
+   "step": 8,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "render",
+    "payload": "job3"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": true,
+   "warned": false,
+   "matched_record_id": [
+    1,
+    4
+   ],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/shadow]",
+   "step": 8,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "render",
+    "payload": "job3"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/shadow]",
+   "step": 9,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "api/v2/render",
+    "payload": "job3"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "api/v2/render"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/shadow]",
+   "step": 9,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "api/v2/render",
+    "payload": "job3"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "api/v2/render"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/shadow]",
+   "step": 10,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "api/v2",
+    "payload": "job3"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "api/v2"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/shadow]",
+   "step": 10,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "api/v2",
+    "payload": "job3"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "api/v2"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  }
+ ],
+ "transcripts": {
+  "Planner": [
+   {
+    "role": "system",
+    "content": "You are Planner, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Render job1 with the render API (payload 'job1'). The render API was moved to version 2 last month."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_zfx5m2kh",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\":\"render/v2\",\"payload\":\"job1\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_zfx5m2kh",
+    "content": "ERROR NotFound: unknown endpoint render/v2"
+   },
+   {
+    "role": "assistant",
+    "content": "It seems the endpoint has been updated, but the version number might be incorrect. Let's try the default endpoint without specifying a version.\n\n",
+    "tool_calls": [
+     {
+      "id": "call_qluaptlr",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\":\"render\",\"payload\":\"job1\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_qluaptlr",
+    "content": "ERROR NotFound: unknown endpoint render"
+   },
+   {
+    "role": "assistant",
+    "content": "The render API endpoint does not seem to exist. Let's try using the default version that might be assumed by the API.\n\n",
+    "tool_calls": [
+     {
+      "id": "call_laett1ww",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"payload\":\"job1\",\"endpoint\":\"render\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_laett1ww",
+    "content": "ERROR NotFound: unknown endpoint render"
+   },
+   {
+    "role": "assistant",
+    "content": "It appears that the render API endpoint is not available. We might need to check with the API documentation or the team for the correct endpoint URL. \n\nFor now, let's verify if there's any other API documentation or configuration that might help us find the correct endpoint. \n\nDo you have access to the API documentation or any other configuration files that might contain the correct endpoint URL?"
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   },
+   {
+    "role": "assistant",
+    "content": "If not, we can try reaching out to the team for assistance."
+   },
+   {
+    "role": "assistant",
+    "content": " Would you like to proceed with that?"
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   }
+  ],
+  "Coder": [
+   {
+    "role": "system",
+    "content": "You are Coder, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Render job2 with the render API (payload 'job2'). The render API was moved to version 2 last month."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_ypz5wkd1",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\":\"render/v2\",\"payload\":\"job2\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_ypz5wkd1",
+    "content": "ERROR NotFound: unknown endpoint render/v2"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_vqacdehh",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\":\"render/v1\",\"payload\":\"job2\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_vqacdehh",
+    "content": "ERROR NotFound: unknown endpoint render/v1"
+   },
+   {
+    "role": "assistant",
+    "content": "It seems the 'render' API endpoint is not available. Let's try another approach. We can check the documentation or contact the support team for further assistance. However, if we have a fallback method, we can use that. Do you have a fallback method or another API version to try?"
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   },
+   {
+    "role": "assistant",
+    "content": "Since no other information was provided, I will assume there might be a typo or misconfiguration. Let's try a different approach by directly calling the API without specifying the version, as sometimes the default version might work.\n\n",
+    "tool_calls": [
+     {
+      "id": "call_shvywf82",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"payload\":\"job2\",\"endpoint\":\"render\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_shvywf82",
+    "content": "ERROR NotFound: unknown endpoint render"
+   },
+   {
+    "role": "assistant",
+    "content": "It appears that the 'render' API endpoint is not recognized at all. Given this, let's consider other possible methods or APIs that could be used to render job2. If there's no other API available, we might need to look into the local rendering capabilities or contact the support team for further assistance.\n\nSince we have exhausted the API options, let's check if there's a local file or script that can be used to render job2.\n\nDo you have a local file or script that can be used for rendering job2? If so, we can use the `write_file` or `run_code` functions to achieve this."
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   },
+   {
+    "role": "assistant",
+    "content": "If not, we should probably escalate this issue to the support team for further investigation."
+   }
+  ],
+  "FileOps": [
+   {
+    "role": "system",
+    "content": "You are FileOps, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Render job3 with the render API (payload 'job3'). The render API was moved to version 2 last month."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_ly0xwx1s",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\":\"render/v2\",\"payload\":\"job3\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_ly0xwx1s",
+    "content": "ERROR NotFound: unknown endpoint render/v2"
+   },
+   {
+    "role": "assistant",
+    "content": "It seems the endpoint has been deprecated or the versioning has changed. Let's try the old endpoint without specifying the version.\n\n",
+    "tool_calls": [
+     {
+      "id": "call_eqqmb74r",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\":\"render\",\"payload\":\"job3\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_eqqmb74r",
+    "content": "ERROR NotFound: unknown endpoint render"
+   },
+   {
+    "role": "assistant",
+    "content": "It appears that the render API has been removed or renamed. Let's check if there's an alternative API endpoint for rendering jobs.\n\n",
+    "tool_calls": [
+     {
+      "id": "call_2wsv4cyw",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\":\"api/v2/render\",\"payload\":\"job3\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_2wsv4cyw",
+    "content": "ERROR NotFound: unknown endpoint api/v2/render"
+   },
+   {
+    "role": "assistant",
+    "content": "Given that the `render` API endpoint is not available, we should look for any documentation or updates from the service provider regarding the new API structure or any alternative methods for rendering jobs.\n\nSince we don't have specific information on the new API, I will assume there might be a different method or endpoint available. Let's try a generic call to the API to see if we can find any relevant information.\n\n",
+    "tool_calls": [
+     {
+      "id": "call_629rg7zz",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\":\"api/v2\",\"payload\":\"job3\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_629rg7zz",
+    "content": "ERROR NotFound: unknown endpoint api/v2"
+   }
+  ]
+ }
+}

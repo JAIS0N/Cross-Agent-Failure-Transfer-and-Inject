@@ -1,0 +1,172 @@
+{
+ "model": "qwen2.5:7b",
+ "mode": "inject",
+ "scenario": "quota_small_ok",
+ "repeat": 0,
+ "success": true,
+ "failures": 0,
+ "repeated_peer_failures": 0,
+ "warnings_delivered": 0,
+ "ignored_warnings": 0,
+ "total_tokens": 4916,
+ "held_tp": 0,
+ "held_fp": 0,
+ "doomed_attempts": 0,
+ "peer_doomed_attempts": 0,
+ "peer_doomed_executed": 0,
+ "events": [
+  {
+   "episode": "quota_small_ok[qwen2.5:7b/inject]",
+   "step": 1,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/tmp/note.txt",
+    "content": "ok"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/note.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "quota_small_ok[qwen2.5:7b/inject]",
+   "step": 1,
+   "agent": "Planner",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/tmp/note.txt",
+    "content": "ok"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/note.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  }
+ ],
+ "transcripts": {
+  "FileOps": [
+   {
+    "role": "system",
+    "content": "You are FileOps, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Save the full dataset dump (the letter X repeated 80 times) to /tmp/dump.txt. If the disk quota is exceeded, give up and reply DONE."
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   }
+  ],
+  "Planner": [
+   {
+    "role": "system",
+    "content": "You are Planner, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Save the two-letter status note 'ok' to /tmp/note.txt. The monitor only reads /tmp/note.txt."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_u65dx4mi",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"path\":\"/tmp/note.txt\",\"content\":\"ok\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_u65dx4mi",
+    "content": "OK: wrote /tmp/note.txt"
+   }
+  ]
+ }
+}

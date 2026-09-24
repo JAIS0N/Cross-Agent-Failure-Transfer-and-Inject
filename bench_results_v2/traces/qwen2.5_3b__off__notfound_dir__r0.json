@@ -1,0 +1,554 @@
+{
+ "model": "qwen2.5:3b",
+ "mode": "off",
+ "scenario": "notfound_dir",
+ "repeat": 0,
+ "success": true,
+ "failures": 4,
+ "repeated_peer_failures": 1,
+ "warnings_delivered": 0,
+ "ignored_warnings": 0,
+ "total_tokens": 5558,
+ "held_tp": 0,
+ "held_fp": 0,
+ "doomed_attempts": 4,
+ "peer_doomed_attempts": 1,
+ "peer_doomed_executed": 1,
+ "events": [
+  {
+   "episode": "notfound_dir[qwen2.5:3b/off]",
+   "step": 1,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/out/data.json",
+    "content": {
+     "content": "data",
+     "type": "string"
+    }
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:dict,path:str"
+    ],
+    [
+     "path",
+     "/out/data.json"
+    ],
+    [
+     "path_prefix",
+     "/out"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "notfound_dir[qwen2.5:3b/off]",
+   "step": 1,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/out/data.json",
+    "content": {
+     "content": "data",
+     "type": "string"
+    }
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:dict,path:str"
+    ],
+    [
+     "path",
+     "/out/data.json"
+    ],
+    [
+     "path_prefix",
+     "/out"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "notfound_dir[qwen2.5:3b/off]",
+   "step": 2,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "list_dir",
+   "args": {
+    "path": "/out"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/out"
+    ],
+    [
+     "path_prefix",
+     "/out"
+    ],
+    [
+     "tool",
+     "list_dir"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "notfound_dir[qwen2.5:3b/off]",
+   "step": 2,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "list_dir",
+   "args": {
+    "path": "/out"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/out"
+    ],
+    [
+     "path_prefix",
+     "/out"
+    ],
+    [
+     "tool",
+     "list_dir"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "notfound_dir[qwen2.5:3b/off]",
+   "step": 3,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "list_dir",
+   "args": {
+    "path": "/out"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/out"
+    ],
+    [
+     "path_prefix",
+     "/out"
+    ],
+    [
+     "tool",
+     "list_dir"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "notfound_dir[qwen2.5:3b/off]",
+   "step": 3,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "list_dir",
+   "args": {
+    "path": "/out"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/out"
+    ],
+    [
+     "path_prefix",
+     "/out"
+    ],
+    [
+     "tool",
+     "list_dir"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "notfound_dir[qwen2.5:3b/off]",
+   "step": 4,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/out/log.txt",
+    "content": {
+     "content": "log",
+     "type": "string"
+    }
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:dict,path:str"
+    ],
+    [
+     "path",
+     "/out/log.txt"
+    ],
+    [
+     "path_prefix",
+     "/out"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "notfound_dir[qwen2.5:3b/off]",
+   "step": 4,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/out/log.txt",
+    "content": {
+     "content": "log",
+     "type": "string"
+    }
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:dict,path:str"
+    ],
+    [
+     "path",
+     "/out/log.txt"
+    ],
+    [
+     "path_prefix",
+     "/out"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "notfound_dir[qwen2.5:3b/off]",
+   "step": 5,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "content": {
+     "content": "log",
+     "type": "string"
+    },
+    "path": "/tmp/log.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:dict,path:str"
+    ],
+    [
+     "path",
+     "/tmp/log.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "notfound_dir[qwen2.5:3b/off]",
+   "step": 5,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "content": {
+     "content": "log",
+     "type": "string"
+    },
+    "path": "/tmp/log.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:dict,path:str"
+    ],
+    [
+     "path",
+     "/tmp/log.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  }
+ ],
+ "transcripts": {
+  "FileOps": [
+   {
+    "role": "system",
+    "content": "You are FileOps, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Write build output to /out/data.json (contents 'data'). If the directory is missing, write it to a directory that exists instead."
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_vtfy4c4f",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"path\":\"/out/data.json\",\"content\":{\"content\":\"data\",\"type\":\"string\"}}"
+      }
+     },
+     {
+      "id": "call_555pnp7w",
+      "type": "function",
+      "function": {
+       "name": "list_dir",
+       "arguments": "{\"path\":\"/out\"}"
+      }
+     },
+     {
+      "id": "call_bcz07njf",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"path\":\"/out/data.json\",\"content\":{\"content\":\"data\",\"type\":\"string\"}}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_vtfy4c4f",
+    "content": "ERROR NotFound: parent dir /out does not exist"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_4x7zip09",
+      "type": "function",
+      "function": {
+       "name": "list_dir",
+       "arguments": "{\"path\":\"/out\"}"
+      }
+     },
+     {
+      "id": "call_91agsjgi",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"path\":\"/out/data.json\",\"content\":{\"content\":\"data\",\"type\":\"string\"}}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_4x7zip09",
+    "content": "ERROR NotFound: dir /out does not exist"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_n82fxr0t",
+      "type": "function",
+      "function": {
+       "name": "list_dir",
+       "arguments": "{\"path\":\"/out\"}"
+      }
+     },
+     {
+      "id": "call_wfagh4h8",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"content\":{\"content\":\"data\",\"type\":\"string\"},\"path\":\"/tmp/data.json\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_n82fxr0t",
+    "content": "ERROR NotFound: dir /out does not exist"
+   }
+  ],
+  "Coder": [
+   {
+    "role": "system",
+    "content": "You are Coder, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Write the run log to /out/log.txt (contents 'log'). If the directory is missing, write it to a directory that exists instead."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_f0489br8",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"path\":\"/out/log.txt\",\"content\":{\"content\":\"log\",\"type\":\"string\"}}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_f0489br8",
+    "content": "ERROR NotFound: parent dir /out does not exist"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_fabi5sag",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"content\":{\"content\":\"log\",\"type\":\"string\"},\"path\":\"/tmp/log.txt\"}"
+      }
+     },
+     {
+      "id": "call_c5b9mfwq",
+      "type": "function",
+      "function": {
+       "name": "list_dir",
+       "arguments": "{\"path\":\"/tmp\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_fabi5sag",
+    "content": "OK: wrote /tmp/log.txt"
+   }
+  ]
+ }
+}

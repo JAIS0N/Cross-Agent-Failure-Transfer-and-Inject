@@ -1,0 +1,857 @@
+{
+ "model": "qwen2.5:3b",
+ "mode": "shadow",
+ "scenario": "guess_dir",
+ "repeat": 0,
+ "success": false,
+ "failures": 5,
+ "repeated_peer_failures": 0,
+ "warnings_delivered": 0,
+ "ignored_warnings": 0,
+ "total_tokens": 9029,
+ "held_tp": 0,
+ "held_fp": 0,
+ "doomed_attempts": 5,
+ "peer_doomed_attempts": 0,
+ "peer_doomed_executed": 0,
+ "text_calls": 0,
+ "events": [
+  {
+   "episode": "guess_dir[qwen2.5:3b/shadow]",
+   "step": 1,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "read_file",
+   "args": {
+    "path": "/README.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/readme.txt"
+    ],
+    [
+     "path_prefix",
+     "/readme.txt"
+    ],
+    [
+     "tool",
+     "read_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "guess_dir[qwen2.5:3b/shadow]",
+   "step": 1,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "read_file",
+   "args": {
+    "path": "/README.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/readme.txt"
+    ],
+    [
+     "path_prefix",
+     "/readme.txt"
+    ],
+    [
+     "tool",
+     "read_file"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "guess_dir[qwen2.5:3b/shadow]",
+   "step": 2,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/reports_2026/sales.txt",
+    "content": {
+     "type": "string",
+     "value": "sales"
+    }
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:dict,path:str"
+    ],
+    [
+     "path",
+     "/reports_2026/sales.txt"
+    ],
+    [
+     "path_prefix",
+     "/reports_2026"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "guess_dir[qwen2.5:3b/shadow]",
+   "step": 2,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/reports_2026/sales.txt",
+    "content": {
+     "type": "string",
+     "value": "sales"
+    }
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:dict,path:str"
+    ],
+    [
+     "path",
+     "/reports_2026/sales.txt"
+    ],
+    [
+     "path_prefix",
+     "/reports_2026"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "guess_dir[qwen2.5:3b/shadow]",
+   "step": 3,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "read_file",
+   "args": {
+    "path": "/README.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/readme.txt"
+    ],
+    [
+     "path_prefix",
+     "/readme.txt"
+    ],
+    [
+     "tool",
+     "read_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "guess_dir[qwen2.5:3b/shadow]",
+   "step": 3,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "read_file",
+   "args": {
+    "path": "/README.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/readme.txt"
+    ],
+    [
+     "path_prefix",
+     "/readme.txt"
+    ],
+    [
+     "tool",
+     "read_file"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "guess_dir[qwen2.5:3b/shadow]",
+   "step": 4,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "content": {
+     "content": "costs",
+     "type": "string"
+    },
+    "path": "/reports_2026/costs.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:dict,path:str"
+    ],
+    [
+     "path",
+     "/reports_2026/costs.txt"
+    ],
+    [
+     "path_prefix",
+     "/reports_2026"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "guess_dir[qwen2.5:3b/shadow]",
+   "step": 4,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "content": {
+     "content": "costs",
+     "type": "string"
+    },
+    "path": "/reports_2026/costs.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:dict,path:str"
+    ],
+    [
+     "path",
+     "/reports_2026/costs.txt"
+    ],
+    [
+     "path_prefix",
+     "/reports_2026"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "guess_dir[qwen2.5:3b/shadow]",
+   "step": 5,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "read_file",
+   "args": {
+    "path": "/team/reports/README.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/team/reports/readme.txt"
+    ],
+    [
+     "path_prefix",
+     "/team"
+    ],
+    [
+     "tool",
+     "read_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "guess_dir[qwen2.5:3b/shadow]",
+   "step": 5,
+   "agent": "Planner",
+   "event_type": "post_call",
+   "tool": "read_file",
+   "args": {
+    "path": "/team/reports/README.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/team/reports/readme.txt"
+    ],
+    [
+     "path_prefix",
+     "/team"
+    ],
+    [
+     "tool",
+     "read_file"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "guess_dir[qwen2.5:3b/shadow]",
+   "step": 6,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "read_file",
+   "args": {
+    "path": "/team/reports/README.md"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/team/reports/readme.md"
+    ],
+    [
+     "path_prefix",
+     "/team"
+    ],
+    [
+     "tool",
+     "read_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "guess_dir[qwen2.5:3b/shadow]",
+   "step": 6,
+   "agent": "Planner",
+   "event_type": "post_call",
+   "tool": "read_file",
+   "args": {
+    "path": "/team/reports/README.md"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/team/reports/readme.md"
+    ],
+    [
+     "path_prefix",
+     "/team"
+    ],
+    [
+     "tool",
+     "read_file"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "guess_dir[qwen2.5:3b/shadow]",
+   "step": 7,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "/api/get_reports_folder"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str"
+    ],
+    [
+     "endpoint",
+     "/api/get_reports_folder"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "guess_dir[qwen2.5:3b/shadow]",
+   "step": 7,
+   "agent": "Planner",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "/api/get_reports_folder"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str"
+    ],
+    [
+     "endpoint",
+     "/api/get_reports_folder"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "guess_dir[qwen2.5:3b/shadow]",
+   "step": 8,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "query_db",
+   "args": {
+    "table": "folders"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "table:str"
+    ],
+    [
+     "table",
+     "folders"
+    ],
+    [
+     "tool",
+     "query_db"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "guess_dir[qwen2.5:3b/shadow]",
+   "step": 8,
+   "agent": "Planner",
+   "event_type": "post_call",
+   "tool": "query_db",
+   "args": {
+    "table": "folders"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "table:str"
+    ],
+    [
+     "table",
+     "folders"
+    ],
+    [
+     "tool",
+     "query_db"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "guess_dir[qwen2.5:3b/shadow]",
+   "step": 9,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "/api/get_reports_folder"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str"
+    ],
+    [
+     "endpoint",
+     "/api/get_reports_folder"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "guess_dir[qwen2.5:3b/shadow]",
+   "step": 9,
+   "agent": "Planner",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "/api/get_reports_folder"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str"
+    ],
+    [
+     "endpoint",
+     "/api/get_reports_folder"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  }
+ ],
+ "transcripts": {
+  "FileOps": [
+   {
+    "role": "system",
+    "content": "You are FileOps, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Save 'sales' as sales.txt in the team's reports folder. If you are unsure of the folder's exact name, read /README.txt first."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_138gvg3v",
+      "type": "function",
+      "function": {
+       "name": "read_file",
+       "arguments": "{\"path\":\"/README.txt\"}"
+      }
+     },
+     {
+      "id": "call_2yo8gxsa",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\":\"reports/folder\"}"
+      }
+     },
+     {
+      "id": "call_vxmops1o",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"path\":\"/team/reports/sales.txt\",\"content\":{\"type\":\"string\",\"value\":\"sales\"}}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_138gvg3v",
+    "content": "OK: The team's reports folder is /reports_2026"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_knaod1ah",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"path\":\"/reports_2026/sales.txt\",\"content\":{\"type\":\"string\",\"value\":\"sales\"}}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_knaod1ah",
+    "content": "OK: wrote /reports_2026/sales.txt"
+   }
+  ],
+  "Coder": [
+   {
+    "role": "system",
+    "content": "You are Coder, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Save 'costs' as costs.txt in the team's reports folder. If you are unsure of the folder's exact name, read /README.txt first."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_wxw54hie",
+      "type": "function",
+      "function": {
+       "name": "read_file",
+       "arguments": "{\"path\":\"/README.txt\"}"
+      }
+     },
+     {
+      "id": "call_gevqzte7",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"path\":\"/team/reports/costs.txt\",\"content\":{\"content\":\"costs\",\"type\":\"string\"}}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_wxw54hie",
+    "content": "OK: The team's reports folder is /reports_2026"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_5avyztrx",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"content\":{\"content\":\"costs\",\"type\":\"string\"},\"path\":\"/reports_2026/costs.txt\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_5avyztrx",
+    "content": "OK: wrote /reports_2026/costs.txt"
+   }
+  ],
+  "Planner": [
+   {
+    "role": "system",
+    "content": "You are Planner, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Save 'plan' as plan.txt in the team's reports folder. If you are unsure of the folder's exact name, read /README.txt first."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_n4kyltx5",
+      "type": "function",
+      "function": {
+       "name": "read_file",
+       "arguments": "{\"path\":\"/team/reports/README.txt\"}"
+      }
+     },
+     {
+      "id": "call_wwn0qz5g",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"path\":\"/team/reports/plan.txt\",\"content\":{\"content\":\"plan\",\"type\":\"string\"}}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_n4kyltx5",
+    "content": "ERROR NotFound: /team/reports/README.txt does not exist"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_m4ndqfxs",
+      "type": "function",
+      "function": {
+       "name": "read_file",
+       "arguments": "{\"path\":\"/team/reports/README.md\"}"
+      }
+     },
+     {
+      "id": "call_73e66uuk",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"content\":{\"content\":\"plan\",\"type\":\"string\"},\"path\":\"/team/reports/plan.txt\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_m4ndqfxs",
+    "content": "ERROR NotFound: /team/reports/README.md does not exist"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_rze7mrvv",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\":\"/api/get_reports_folder\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_rze7mrvv",
+    "content": "ERROR NotFound: unknown endpoint /api/get_reports_folder"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_1oqvranx",
+      "type": "function",
+      "function": {
+       "name": "query_db",
+       "arguments": "{\"table\":\"folders\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_1oqvranx",
+    "content": "ERROR NotFound: table folders does not exist"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_5glio26c",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\":\"/api/get_reports_folder\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_5glio26c",
+    "content": "ERROR NotFound: unknown endpoint /api/get_reports_folder"
+   },
+   {
+    "role": "assistant",
+    "content": "ORE: An error occurred while accessing the reports folder. Please provide the folder's name manually."
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   },
+   {
+    "role": "assistant",
+    "content": "We will proceed to create the file in the default reports folder."
+   }
+  ]
+ }
+}

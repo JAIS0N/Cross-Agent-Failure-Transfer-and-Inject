@@ -1,0 +1,931 @@
+{
+ "model": "llama3.1:8b",
+ "mode": "off",
+ "scenario": "guess_dir",
+ "repeat": 0,
+ "success": false,
+ "failures": 6,
+ "repeated_peer_failures": 2,
+ "warnings_delivered": 0,
+ "ignored_warnings": 0,
+ "total_tokens": 6953,
+ "held_tp": 0,
+ "held_fp": 0,
+ "doomed_attempts": 6,
+ "peer_doomed_attempts": 2,
+ "peer_doomed_executed": 2,
+ "events": [
+  {
+   "episode": "guess_dir[llama3.1:8b/off]",
+   "step": 1,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/team/reports/sales.txt",
+    "content": "sales"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/team/reports/sales.txt"
+    ],
+    [
+     "path_prefix",
+     "/team"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "guess_dir[llama3.1:8b/off]",
+   "step": 1,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/team/reports/sales.txt",
+    "content": "sales"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/team/reports/sales.txt"
+    ],
+    [
+     "path_prefix",
+     "/team"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "guess_dir[llama3.1:8b/off]",
+   "step": 2,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "list_dir",
+   "args": {
+    "path": "/"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/"
+    ],
+    [
+     "path_prefix",
+     "/"
+    ],
+    [
+     "tool",
+     "list_dir"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "guess_dir[llama3.1:8b/off]",
+   "step": 2,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "list_dir",
+   "args": {
+    "path": "/"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/"
+    ],
+    [
+     "path_prefix",
+     "/"
+    ],
+    [
+     "tool",
+     "list_dir"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "guess_dir[llama3.1:8b/off]",
+   "step": 3,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/team/reports/costs.txt",
+    "content": "costs"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/team/reports/costs.txt"
+    ],
+    [
+     "path_prefix",
+     "/team"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "guess_dir[llama3.1:8b/off]",
+   "step": 3,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/team/reports/costs.txt",
+    "content": "costs"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/team/reports/costs.txt"
+    ],
+    [
+     "path_prefix",
+     "/team"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "guess_dir[llama3.1:8b/off]",
+   "step": 4,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "list_dir",
+   "args": {
+    "path": "/"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/"
+    ],
+    [
+     "path_prefix",
+     "/"
+    ],
+    [
+     "tool",
+     "list_dir"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "guess_dir[llama3.1:8b/off]",
+   "step": 4,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "list_dir",
+   "args": {
+    "path": "/"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/"
+    ],
+    [
+     "path_prefix",
+     "/"
+    ],
+    [
+     "tool",
+     "list_dir"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "guess_dir[llama3.1:8b/off]",
+   "step": 5,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "list_dir",
+   "args": {
+    "path": "/team"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/team"
+    ],
+    [
+     "path_prefix",
+     "/team"
+    ],
+    [
+     "tool",
+     "list_dir"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "guess_dir[llama3.1:8b/off]",
+   "step": 5,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "list_dir",
+   "args": {
+    "path": "/team"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/team"
+    ],
+    [
+     "path_prefix",
+     "/team"
+    ],
+    [
+     "tool",
+     "list_dir"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "guess_dir[llama3.1:8b/off]",
+   "step": 6,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "list_dir",
+   "args": {
+    "path": "/team/reports"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/team/reports"
+    ],
+    [
+     "path_prefix",
+     "/team"
+    ],
+    [
+     "tool",
+     "list_dir"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "guess_dir[llama3.1:8b/off]",
+   "step": 6,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "list_dir",
+   "args": {
+    "path": "/team/reports"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/team/reports"
+    ],
+    [
+     "path_prefix",
+     "/team"
+    ],
+    [
+     "tool",
+     "list_dir"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "guess_dir[llama3.1:8b/off]",
+   "step": 7,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "list_dir",
+   "args": {
+    "path": "/team"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/team"
+    ],
+    [
+     "path_prefix",
+     "/team"
+    ],
+    [
+     "tool",
+     "list_dir"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "guess_dir[llama3.1:8b/off]",
+   "step": 7,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "list_dir",
+   "args": {
+    "path": "/team"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/team"
+    ],
+    [
+     "path_prefix",
+     "/team"
+    ],
+    [
+     "tool",
+     "list_dir"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "guess_dir[llama3.1:8b/off]",
+   "step": 8,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "list_dir",
+   "args": {
+    "path": "/"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/"
+    ],
+    [
+     "path_prefix",
+     "/"
+    ],
+    [
+     "tool",
+     "list_dir"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "guess_dir[llama3.1:8b/off]",
+   "step": 8,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "list_dir",
+   "args": {
+    "path": "/"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/"
+    ],
+    [
+     "path_prefix",
+     "/"
+    ],
+    [
+     "tool",
+     "list_dir"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "guess_dir[llama3.1:8b/off]",
+   "step": 9,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/team/reports/plan.txt",
+    "content": "plan"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/team/reports/plan.txt"
+    ],
+    [
+     "path_prefix",
+     "/team"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "guess_dir[llama3.1:8b/off]",
+   "step": 9,
+   "agent": "Planner",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/team/reports/plan.txt",
+    "content": "plan"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/team/reports/plan.txt"
+    ],
+    [
+     "path_prefix",
+     "/team"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "guess_dir[llama3.1:8b/off]",
+   "step": 10,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "list_dir",
+   "args": {
+    "path": "/"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/"
+    ],
+    [
+     "path_prefix",
+     "/"
+    ],
+    [
+     "tool",
+     "list_dir"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "guess_dir[llama3.1:8b/off]",
+   "step": 10,
+   "agent": "Planner",
+   "event_type": "post_call",
+   "tool": "list_dir",
+   "args": {
+    "path": "/"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/"
+    ],
+    [
+     "path_prefix",
+     "/"
+    ],
+    [
+     "tool",
+     "list_dir"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  }
+ ],
+ "transcripts": {
+  "FileOps": [
+   {
+    "role": "system",
+    "content": "You are FileOps, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Save 'sales' as sales.txt in the team's reports folder. Use list_dir('/') if you are unsure of the folder's exact name."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_90zc038l",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"path\":\"/team/reports/sales.txt\",\"content\":\"sales\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_90zc038l",
+    "content": "ERROR NotFound: parent dir /team/reports does not exist"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_v9ec2nqw",
+      "type": "function",
+      "function": {
+       "name": "list_dir",
+       "arguments": "{\"path\":\"/\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_v9ec2nqw",
+    "content": "OK: []"
+   },
+   {
+    "role": "assistant",
+    "content": "Since the parent directory '/team/reports' does not exist, I will create it first.\n\n{\"name\": \"mkdir\", \"parameters\": {\"path\":\"/team/reports\"}}"
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   },
+   {
+    "role": "assistant",
+    "content": "(I will wait for the mkdir response before proceeding)"
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   }
+  ],
+  "Coder": [
+   {
+    "role": "system",
+    "content": "You are Coder, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Save 'costs' as costs.txt in the team's reports folder. Use list_dir('/') if you are unsure of the folder's exact name."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_ro03ynz1",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"path\":\"/team/reports/costs.txt\",\"content\":\"costs\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_ro03ynz1",
+    "content": "ERROR NotFound: parent dir /team/reports does not exist"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_2lmsinua",
+      "type": "function",
+      "function": {
+       "name": "list_dir",
+       "arguments": "{\"path\":\"/\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_2lmsinua",
+    "content": "OK: []"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_qx00wtxh",
+      "type": "function",
+      "function": {
+       "name": "list_dir",
+       "arguments": "{\"path\":\"/team\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_qx00wtxh",
+    "content": "ERROR NotFound: dir /team does not exist"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_lugswsnv",
+      "type": "function",
+      "function": {
+       "name": "list_dir",
+       "arguments": "{\"path\":\"/team/reports\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_lugswsnv",
+    "content": "ERROR NotFound: dir /team/reports does not exist"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_6n9o5eyc",
+      "type": "function",
+      "function": {
+       "name": "list_dir",
+       "arguments": "{\"path\":\"/team\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_6n9o5eyc",
+    "content": "ERROR NotFound: dir /team does not exist"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_jzcad1g7",
+      "type": "function",
+      "function": {
+       "name": "list_dir",
+       "arguments": "{\"path\":\"/\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_jzcad1g7",
+    "content": "OK: []"
+   },
+   {
+    "role": "assistant",
+    "content": "{\"name\": \"mkdir\", \"parameters\": {\"path\":\"/team/reports\"}}"
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   }
+  ],
+  "Planner": [
+   {
+    "role": "system",
+    "content": "You are Planner, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Save 'plan' as plan.txt in the team's reports folder. Use list_dir('/') if you are unsure of the folder's exact name."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_g0g0r8ue",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"path\":\"/team/reports/plan.txt\",\"content\":\"plan\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_g0g0r8ue",
+    "content": "ERROR NotFound: parent dir /team/reports does not exist"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_knibn81n",
+      "type": "function",
+      "function": {
+       "name": "list_dir",
+       "arguments": "{\"path\":\"/\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_knibn81n",
+    "content": "OK: []"
+   },
+   {
+    "role": "assistant",
+    "content": "Since the parent directory '/team/reports' does not exist, I will create it first.\n\n{\"name\": \"mkdir\", \"parameters\": {\"path\":\"/team/reports\"}}"
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   },
+   {
+    "role": "assistant",
+    "content": "(I will wait for the mkdir call to complete before proceeding)"
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   }
+  ]
+ }
+}

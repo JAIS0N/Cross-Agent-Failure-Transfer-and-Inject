@@ -154,3 +154,55 @@ def test_execute_code_handles_non_ascii():
     from pfti.eval.whoandwhen_llm import execute_code
     out = execute_code("python", "print('≈ approx')")
     assert "execution succeeded" in out
+
+
+# ------------------------------------------- after the first v2 real run --
+
+def test_reasoning_scenarios_are_solvable():
+    # first v2 run: 0/4 models solved them because the answer was not
+    # discoverable (list_dir lists files only; /v2/render was unguessable)
+    from pfti.envs.tools import World, would_fail, list_dir, read_file
+    for sc in SCENARIO_SETS["reasoning"]:
+        w = World(**sc["world"])
+        assert w.files, sc["name"]            # a discoverable pointer file
+        for a in sc["agents"]:
+            tool, args = a["script"]["alt"]
+            assert would_fail(tool, args, w) is None
+            assert would_fail(*a["script"]["primary"][:1],
+                              a["script"]["primary"][1], w) is not None
+    w = World(**SCENARIO_SETS["reasoning"][1]["world"])
+    assert "/README.txt" in list_dir(w, "/")
+    assert "/reports_2026" in read_file(w, "/README.txt")
+
+
+def test_parse_text_call_finds_llama_style_calls():
+    from pfti.bench.core_matrix import parse_text_call
+    t = ('Since the table does not exist, I will query users instead.  '
+         '{"name": "query_db", "parameters": {"query":"SELECT *","table":"users"}}')
+    assert parse_text_call(t) == ("query_db", {"query": "SELECT *", "table": "users"})
+    assert parse_text_call('{"name": "call_api", "arguments": "{\\"endpoint\\": \\"/x\\"}"}') \
+        == ("call_api", {"endpoint": "/x"})
+    assert parse_text_call("no call here {not json}") is None
+    assert parse_text_call('{"name": "rm_rf", "parameters": {}}') is None
+
+
+class _TextOnlyLLM:
+    """Writes its first call as text (like llama3.1), then says DONE."""
+    def __init__(self):
+        from pfti.bench.providers import _Chat
+        self.chat = _Chat(self)
+
+    def _create(self, model, messages, tools, temperature):
+        from pfti.bench.providers import _Resp, _Msg, _Usage
+        if any(m.get("role") == "tool" for m in messages):
+            return _Resp(_Msg(content="DONE"), _Usage(10, 1))
+        return _Resp(_Msg(content='{"name": "query_db", "parameters": {"table": "users"}}'),
+                     _Usage(10, 5))
+
+
+def test_text_calls_counted_always_executed_only_when_enabled():
+    sc = next(s for s in SCENARIOS if s["name"] == "missing_table")
+    r0 = run_scenario(sc, "off", _TextOnlyLLM(), "m")
+    r1 = run_scenario(sc, "off", _TextOnlyLLM(), "m", parse_text_calls=True)
+    assert r0["text_calls"] > 0 and not r0["success"]
+    assert r1["text_calls"] > 0 and r1["success"]

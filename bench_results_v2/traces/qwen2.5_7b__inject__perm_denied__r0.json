@@ -1,0 +1,691 @@
+{
+ "model": "qwen2.5:7b",
+ "mode": "inject",
+ "scenario": "perm_denied",
+ "repeat": 0,
+ "success": true,
+ "failures": 3,
+ "repeated_peer_failures": 0,
+ "warnings_delivered": 1,
+ "ignored_warnings": 0,
+ "total_tokens": 5699,
+ "held_tp": 1,
+ "held_fp": 0,
+ "doomed_attempts": 4,
+ "peer_doomed_attempts": 1,
+ "peer_doomed_executed": 0,
+ "events": [
+  {
+   "episode": "perm_denied[qwen2.5:7b/inject]",
+   "step": 1,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/data/report.csv",
+    "content": "q1 numbers"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/data/report.csv"
+    ],
+    [
+     "path_prefix",
+     "/data"
+    ],
+    [
+     "perm",
+     "ro"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "PermissionDenied"
+  },
+  {
+   "episode": "perm_denied[qwen2.5:7b/inject]",
+   "step": 1,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/data/report.csv",
+    "content": "q1 numbers"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/data/report.csv"
+    ],
+    [
+     "path_prefix",
+     "/data"
+    ],
+    [
+     "perm",
+     "ro"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "PermissionDenied"
+  },
+  {
+   "episode": "perm_denied[qwen2.5:7b/inject]",
+   "step": 2,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "content": "q1 numbers",
+    "path": "/user_data/report.csv"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/user_data/report.csv"
+    ],
+    [
+     "path_prefix",
+     "/user_data"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "perm_denied[qwen2.5:7b/inject]",
+   "step": 2,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "content": "q1 numbers",
+    "path": "/user_data/report.csv"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/user_data/report.csv"
+    ],
+    [
+     "path_prefix",
+     "/user_data"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "perm_denied[qwen2.5:7b/inject]",
+   "step": 3,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "content": "q1 numbers",
+    "path": "/user_data_dir/report.csv"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/user_data_dir/report.csv"
+    ],
+    [
+     "path_prefix",
+     "/user_data_dir"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "perm_denied[qwen2.5:7b/inject]",
+   "step": 3,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "content": "q1 numbers",
+    "path": "/user_data_dir/report.csv"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/user_data_dir/report.csv"
+    ],
+    [
+     "path_prefix",
+     "/user_data_dir"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "perm_denied[qwen2.5:7b/inject]",
+   "step": 4,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "content": "q1 numbers",
+    "path": "/tmp/report.csv"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/report.csv"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "perm_denied[qwen2.5:7b/inject]",
+   "step": 4,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "content": "q1 numbers",
+    "path": "/tmp/report.csv"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/report.csv"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "perm_denied[qwen2.5:7b/inject]",
+   "step": 5,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "content": "exec summary",
+    "path": "/data/summary.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/data/summary.txt"
+    ],
+    [
+     "path_prefix",
+     "/data"
+    ],
+    [
+     "perm",
+     "ro"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": true,
+   "warned": true,
+   "matched_record_id": [
+    0
+   ],
+   "oracle_would_fail": "PermissionDenied"
+  },
+  {
+   "episode": "perm_denied[qwen2.5:7b/inject]",
+   "step": 6,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "content": "exec summary",
+    "path": "/tmp/summary.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/summary.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "perm_denied[qwen2.5:7b/inject]",
+   "step": 6,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "content": "exec summary",
+    "path": "/tmp/summary.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/summary.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "perm_denied[qwen2.5:7b/inject]",
+   "step": 7,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "content": "notes",
+    "path": "/tmp/notes.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/notes.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "perm_denied[qwen2.5:7b/inject]",
+   "step": 7,
+   "agent": "Planner",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "content": "notes",
+    "path": "/tmp/notes.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/notes.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  }
+ ],
+ "transcripts": {
+  "FileOps": [
+   {
+    "role": "system",
+    "content": "You are FileOps, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Save the quarterly report to the shared data folder at /data/report.csv (contents: 'q1 numbers'). If that location does not work, put it somewhere writable."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_vewjxylk",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"path\":\"/data/report.csv\",\"content\":\"q1 numbers\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_vewjxylk",
+    "content": "ERROR PermissionDenied: /data is read-only"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_ji003mf0",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"content\":\"q1 numbers\",\"path\":\"/user_data/report.csv\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_ji003mf0",
+    "content": "ERROR NotFound: parent dir /user_data does not exist"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_52afze4n",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"content\":\"q1 numbers\",\"path\":\"/user_data_dir/report.csv\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_52afze4n",
+    "content": "ERROR NotFound: parent dir /user_data_dir does not exist"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_kkara866",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"content\":\"q1 numbers\",\"path\":\"/tmp/report.csv\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_kkara866",
+    "content": "OK: wrote /tmp/report.csv"
+   }
+  ],
+  "Coder": [
+   {
+    "role": "system",
+    "content": "You are Coder, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Save the executive summary to /data/summary.txt (contents: 'exec summary'). If that location does not work, put it somewhere writable."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_zj6mfs07",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"content\":\"exec summary\",\"path\":\"/data/summary.txt\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_zj6mfs07",
+    "content": "!! PEER FAILURE WARNING\nAgent FileOps attempted write_file with a matching pattern (arg_types=content:str,path:str, path_prefix=/data, perm=ro, tool=write_file)\nat step 1 and failed with PermissionDenied: \"/data is read-only\".\nConsider: (a) verifying the precondition first, (b) an alternative\ntool/approach, or (c) proceeding only if your situation differs.\n[This call was NOT executed. Reconsider: choose a verified alternative, or repeat the call to proceed anyway.]"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_m1j6k3sn",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"content\":\"exec summary\",\"path\":\"/tmp/summary.txt\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_m1j6k3sn",
+    "content": "OK: wrote /tmp/summary.txt"
+   }
+  ],
+  "Planner": [
+   {
+    "role": "system",
+    "content": "You are Planner, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Save the meeting notes to /tmp/notes.txt (contents: 'notes')."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_9sja5mmh",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"content\":\"notes\",\"path\":\"/tmp/notes.txt\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_9sja5mmh",
+    "content": "OK: wrote /tmp/notes.txt"
+   }
+  ]
+ }
+}

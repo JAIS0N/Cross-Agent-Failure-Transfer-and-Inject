@@ -1,0 +1,26 @@
+{
+  "fake": false,
+  "models": [
+    "llama3.1:8b"
+  ],
+  "level": "mid",
+  "repeats": 1,
+  "seconds": 132.0,
+  "scenario_set": "all",
+  "scenarios": [
+    "perm_denied",
+    "notfound_dir",
+    "rate_limit",
+    "quota",
+    "missing_table",
+    "prefix_collision",
+    "quota_small_ok",
+    "stale_ratelimit",
+    "stale_perm_control",
+    "retired_endpoint",
+    "guess_dir"
+  ],
+  "save_traces": true,
+  "parse_text_calls": true,
+  "timestamp": "2026-09-22 21:39:55"
+}

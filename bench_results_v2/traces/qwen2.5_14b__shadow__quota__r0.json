@@ -1,0 +1,552 @@
+{
+ "model": "qwen2.5:14b",
+ "mode": "shadow",
+ "scenario": "quota",
+ "repeat": 0,
+ "success": false,
+ "failures": 3,
+ "repeated_peer_failures": 0,
+ "warnings_delivered": 0,
+ "ignored_warnings": 0,
+ "total_tokens": 5276,
+ "held_tp": 0,
+ "held_fp": 0,
+ "doomed_attempts": 3,
+ "peer_doomed_attempts": 0,
+ "peer_doomed_executed": 0,
+ "events": [
+  {
+   "episode": "quota[qwen2.5:14b/shadow]",
+   "step": 1,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/tmp/a.txt",
+    "content": "FULL_DATASET_DUMP"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/a.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "quota[qwen2.5:14b/shadow]",
+   "step": 1,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/tmp/a.txt",
+    "content": "FULL_DATASET_DUMP"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/a.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "quota[qwen2.5:14b/shadow]",
+   "step": 2,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "content": "OK: wrote /tmp/a.txt",
+    "path": "/tmp/a.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/a.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "quota[qwen2.5:14b/shadow]",
+   "step": 2,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "content": "OK: wrote /tmp/a.txt",
+    "path": "/tmp/a.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/a.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "quota[qwen2.5:14b/shadow]",
+   "step": 3,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/tmp/b.txt",
+    "content": "complete_log_bundle_content"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/b.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "QuotaExceeded"
+  },
+  {
+   "episode": "quota[qwen2.5:14b/shadow]",
+   "step": 3,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/tmp/b.txt",
+    "content": "complete_log_bundle_content"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/b.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "QuotaExceeded"
+  },
+  {
+   "episode": "quota[qwen2.5:14b/shadow]",
+   "step": 4,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/tmp/b.txt",
+    "content": "COMPACT_LOG_BUNDLE_CONTENT"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/b.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "QuotaExceeded"
+  },
+  {
+   "episode": "quota[qwen2.5:14b/shadow]",
+   "step": 4,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/tmp/b.txt",
+    "content": "COMPACT_LOG_BUNDLE_CONTENT"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/b.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "QuotaExceeded"
+  },
+  {
+   "episode": "quota[qwen2.5:14b/shadow]",
+   "step": 5,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/tmp/b.txt",
+    "content": "Log bundle could not be saved due to disk quota exceeded."
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/b.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "QuotaExceeded"
+  },
+  {
+   "episode": "quota[qwen2.5:14b/shadow]",
+   "step": 5,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/tmp/b.txt",
+    "content": "Log bundle could not be saved due to disk quota exceeded."
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/b.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "QuotaExceeded"
+  }
+ ],
+ "transcripts": {
+  "FileOps": [
+   {
+    "role": "system",
+    "content": "You are FileOps, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Save the full dataset dump to /tmp/a.txt. Prefer the complete dump; if the disk quota is exceeded, save a compact version instead."
+   },
+   {
+    "role": "assistant",
+    "content": "First, I will attempt to save the full dataset dump to the specified file path.\n",
+    "tool_calls": [
+     {
+      "id": "call_44krel7p",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"path\":\"/tmp/a.txt\",\"content\":\"FULL_DATASET_DUMP\"}"
+      }
+     },
+     {
+      "id": "call_gmi6vnkt",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"payload\":\"\",\"endpoint\":\"/api/dataset/dump/compact\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_44krel7p",
+    "content": "OK: wrote /tmp/a.txt"
+   },
+   {
+    "role": "assistant",
+    "content": "The full dataset dump has been successfully saved to /tmp/a.txt.\n",
+    "tool_calls": [
+     {
+      "id": "call_8wd412cg",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"content\":\"OK: wrote /tmp/a.txt\",\"path\":\"/tmp/a.txt\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_8wd412cg",
+    "content": "OK: wrote /tmp/a.txt"
+   }
+  ],
+  "Coder": [
+   {
+    "role": "system",
+    "content": "You are Coder, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Save the full log bundle to /tmp/b.txt. Prefer the complete bundle; if the disk quota is exceeded, save a compact version instead."
+   },
+   {
+    "role": "assistant",
+    "content": "\u0e04\u0e13\u0e30\u0e01\u0e23\u0e23\u0e21\u0e01\u0e32\u0e23\u0e17\u0e33\u0e07\u0e32\u0e19\u0e02\u0e2d\u0e07\u0e04\u0e38\u0e13\u0e44\u0e21\u0e48\u0e44\u0e14\u0e49\u0e23\u0e30\u0e1a\u0e38\u0e27\u0e48\u0e32\u0e21\u0e35\u0e01\u0e32\u0e23\u0e2a\u0e23\u0e49\u0e32\u0e07 \"log bundle\" \u0e2b\u0e23\u0e37\u0e2d\u0e27\u0e48\u0e32\u0e21\u0e35\u0e27\u0e34\u0e18\u0e35\u0e01\u0e32\u0e23\u0e2a\u0e23\u0e49\u0e32\u0e07 \"log bundle\" \u0e17\u0e35\u0e48\u0e41\u0e15\u0e01\u0e15\u0e48\u0e32\u0e07\u0e01\u0e31\u0e19\u0e23\u0e30\u0e2b\u0e27\u0e48\u0e32\u0e07 \"complete\" \u0e41\u0e25\u0e30 \"compact\" \u0e14\u0e31\u0e07\u0e19\u0e31\u0e49\u0e19\u0e09\u0e31\u0e19\u0e08\u0e30\u0e2a\u0e21\u0e21\u0e15\u0e34\u0e27\u0e48\u0e32\u0e21\u0e35\u0e27\u0e34\u0e18\u0e35\u0e01\u0e32\u0e23\u0e2a\u0e23\u0e49\u0e32\u0e07 \"log bundle\" \u0e17\u0e31\u0e49\u0e07\u0e2a\u0e2d\u0e07\u0e41\u0e1a\u0e1a \u0e41\u0e25\u0e30\u0e08\u0e30\u0e1e\u0e22\u0e32\u0e22\u0e32\u0e21\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01 \"complete\" \u0e25\u0e07\u0e43\u0e19 `/tmp/b.txt` \u0e2b\u0e32\u0e01\u0e21\u0e35\u0e1e\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e44\u0e21\u0e48\u0e40\u0e1e\u0e35\u0e22\u0e07\u0e1e\u0e2d \u0e09\u0e31\u0e19\u0e08\u0e30\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01 \"compact\" \u0e41\u0e17\u0e19\n\n\u0e02\u0e31\u0e49\u0e19\u0e15\u0e2d\u0e19\u0e41\u0e23\u0e01 \u0e09\u0e31\u0e19\u0e08\u0e30\u0e25\u0e2d\u0e07\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01 \"complete\" log bundle \u0e25\u0e07\u0e43\u0e19 `/tmp/b.txt`\n",
+    "tool_calls": [
+     {
+      "id": "call_npivu8sm",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"path\":\"/tmp/b.txt\",\"content\":\"complete_log_bundle_content\"}"
+      }
+     },
+     {
+      "id": "call_11tb1foy",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"path\":\"/tmp/b.txt\",\"content\":\"compact_log_bundle_content\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_npivu8sm",
+    "content": "ERROR QuotaExceeded: disk quota exceeded"
+   },
+   {
+    "role": "assistant",
+    "content": "\u0e14\u0e39\u0e40\u0e2b\u0e21\u0e37\u0e2d\u0e19\u0e27\u0e48\u0e32\u0e21\u0e35\u0e02\u0e49\u0e2d\u0e1c\u0e34\u0e14\u0e1e\u0e25\u0e32\u0e14\u0e40\u0e01\u0e35\u0e48\u0e22\u0e27\u0e01\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e43\u0e0a\u0e49\u0e1e\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e40\u0e01\u0e34\u0e19\u0e01\u0e27\u0e48\u0e32\u0e17\u0e35\u0e48\u0e01\u0e33\u0e2b\u0e19\u0e14\u0e44\u0e27\u0e49 \u0e09\u0e31\u0e19\u0e08\u0e30\u0e25\u0e2d\u0e07\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01 \"compact\" log bundle \u0e41\u0e17\u0e19\n",
+    "tool_calls": [
+     {
+      "id": "call_1y4d4l4b",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"path\":\"/tmp/b.txt\",\"content\":\"COMPACT_LOG_BUNDLE_CONTENT\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_1y4d4l4b",
+    "content": "ERROR QuotaExceeded: disk quota exceeded"
+   },
+   {
+    "role": "assistant",
+    "content": "\u0e14\u0e39\u0e40\u0e2b\u0e21\u0e37\u0e2d\u0e19\u0e27\u0e48\u0e32\u0e41\u0e21\u0e49\u0e01\u0e23\u0e30\u0e17\u0e31\u0e48\u0e07\u0e01\u0e32\u0e23\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01 \"compact\" log bundle \u0e01\u0e47\u0e22\u0e31\u0e07\u0e17\u0e33\u0e43\u0e2b\u0e49\u0e40\u0e01\u0e34\u0e19\u0e1e\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e17\u0e35\u0e48\u0e01\u0e33\u0e2b\u0e19\u0e14\u0e44\u0e27\u0e49 \u0e09\u0e31\u0e19\u0e08\u0e30\u0e15\u0e49\u0e2d\u0e07\u0e2b\u0e32\u0e17\u0e32\u0e07\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e2d\u0e37\u0e48\u0e19 \u0e41\u0e15\u0e48\u0e08\u0e32\u0e01\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e35\u0e48\u0e21\u0e35 \u0e09\u0e31\u0e19\u0e08\u0e30\u0e15\u0e49\u0e2d\u0e07\u0e25\u0e2d\u0e07\u0e2d\u0e35\u0e01\u0e04\u0e23\u0e31\u0e49\u0e07\u0e42\u0e14\u0e22\u0e01\u0e32\u0e23\u0e25\u0e14\u0e02\u0e19\u0e32\u0e14\u0e02\u0e2d\u0e07\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e35\u0e48\u0e08\u0e30\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e43\u0e2b\u0e49\u0e19\u0e49\u0e2d\u0e22\u0e25\u0e07 \u0e2b\u0e23\u0e37\u0e2d\u0e2d\u0e32\u0e08\u0e15\u0e49\u0e2d\u0e07\u0e02\u0e2d\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e1e\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e43\u0e2b\u0e49\u0e40\u0e1e\u0e35\u0e22\u0e07\u0e1e\u0e2d\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01 \"compact\" log bundle\n\n\u0e40\u0e19\u0e37\u0e48\u0e2d\u0e07\u0e08\u0e32\u0e01\u0e44\u0e21\u0e48\u0e21\u0e35\u0e17\u0e32\u0e07\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e2d\u0e37\u0e48\u0e19\u0e17\u0e35\u0e48\u0e0a\u0e31\u0e14\u0e40\u0e08\u0e19\u0e43\u0e19\u0e02\u0e13\u0e30\u0e19\u0e35\u0e49 \u0e09\u0e31\u0e19\u0e08\u0e30\u0e25\u0e2d\u0e07\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e35\u0e48\u0e19\u0e49\u0e2d\u0e22\u0e17\u0e35\u0e48\u0e2a\u0e38\u0e14\u0e17\u0e35\u0e48\u0e08\u0e33\u0e40\u0e1b\u0e47\u0e19\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e43\u0e2b\u0e49\u0e41\u0e19\u0e48\u0e43\u0e08\u0e27\u0e48\u0e32\u0e44\u0e21\u0e48\u0e40\u0e01\u0e34\u0e19\u0e1e\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e17\u0e35\u0e48\u0e01\u0e33\u0e2b\u0e19\u0e14\u0e44\u0e27\u0e49\n",
+    "tool_calls": [
+     {
+      "id": "call_nn1jemjq",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"path\":\"/tmp/b.txt\",\"content\":\"Log bundle could not be saved due to disk quota exceeded.\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_nn1jemjq",
+    "content": "ERROR QuotaExceeded: disk quota exceeded"
+   }
+  ]
+ }
+}

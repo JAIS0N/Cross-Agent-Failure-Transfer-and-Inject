@@ -1,0 +1,239 @@
+{
+ "model": "qwen2.5:7b",
+ "mode": "off",
+ "scenario": "stale_perm_control",
+ "repeat": 0,
+ "success": true,
+ "failures": 1,
+ "repeated_peer_failures": 0,
+ "warnings_delivered": 0,
+ "ignored_warnings": 0,
+ "total_tokens": 1947,
+ "held_tp": 0,
+ "held_fp": 0,
+ "doomed_attempts": 1,
+ "peer_doomed_attempts": 0,
+ "peer_doomed_executed": 0,
+ "events": [
+  {
+   "episode": "stale_perm_control[qwen2.5:7b/off]",
+   "step": 1,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/data/report.csv",
+    "content": "q1"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/data/report.csv"
+    ],
+    [
+     "path_prefix",
+     "/data"
+    ],
+    [
+     "perm",
+     "ro"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "PermissionDenied"
+  },
+  {
+   "episode": "stale_perm_control[qwen2.5:7b/off]",
+   "step": 1,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/data/report.csv",
+    "content": "q1"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/data/report.csv"
+    ],
+    [
+     "path_prefix",
+     "/data"
+    ],
+    [
+     "perm",
+     "ro"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "PermissionDenied"
+  },
+  {
+   "episode": "stale_perm_control[qwen2.5:7b/off]",
+   "step": 2,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "content": "exec",
+    "path": "/data/summary.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/data/summary.txt"
+    ],
+    [
+     "path_prefix",
+     "/data"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "stale_perm_control[qwen2.5:7b/off]",
+   "step": 2,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "content": "exec",
+    "path": "/data/summary.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/data/summary.txt"
+    ],
+    [
+     "path_prefix",
+     "/data"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  }
+ ],
+ "transcripts": {
+  "FileOps": [
+   {
+    "role": "system",
+    "content": "You are FileOps, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Save the quarterly report to /data/report.csv (contents 'q1'). If that fails, reply DONE."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_xileoznf",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"path\":\"/data/report.csv\",\"content\":\"q1\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_xileoznf",
+    "content": "ERROR PermissionDenied: /data is read-only"
+   }
+  ],
+  "Coder": [
+   {
+    "role": "system",
+    "content": "You are Coder, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Save the executive summary to /data/summary.txt (contents 'exec'). It must be in /data."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_klqtzq82",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"content\":\"exec\",\"path\":\"/data/summary.txt\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_klqtzq82",
+    "content": "OK: wrote /data/summary.txt"
+   }
+  ]
+ }
+}

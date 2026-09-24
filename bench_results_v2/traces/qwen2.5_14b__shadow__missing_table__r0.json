@@ -1,0 +1,568 @@
+{
+ "model": "qwen2.5:14b",
+ "mode": "shadow",
+ "scenario": "missing_table",
+ "repeat": 0,
+ "success": true,
+ "failures": 3,
+ "repeated_peer_failures": 2,
+ "warnings_delivered": 0,
+ "ignored_warnings": 0,
+ "total_tokens": 5461,
+ "held_tp": 0,
+ "held_fp": 0,
+ "doomed_attempts": 3,
+ "peer_doomed_attempts": 2,
+ "peer_doomed_executed": 2,
+ "events": [
+  {
+   "episode": "missing_table[qwen2.5:14b/shadow]",
+   "step": 1,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "query_db",
+   "args": {
+    "table": "accounts",
+    "query": "SELECT * FROM accounts"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "query:str,table:str"
+    ],
+    [
+     "query",
+     "select * from accounts"
+    ],
+    [
+     "table",
+     "accounts"
+    ],
+    [
+     "tool",
+     "query_db"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "missing_table[qwen2.5:14b/shadow]",
+   "step": 1,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "query_db",
+   "args": {
+    "table": "accounts",
+    "query": "SELECT * FROM accounts"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "query:str,table:str"
+    ],
+    [
+     "query",
+     "select * from accounts"
+    ],
+    [
+     "table",
+     "accounts"
+    ],
+    [
+     "tool",
+     "query_db"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "missing_table[qwen2.5:14b/shadow]",
+   "step": 2,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "query_db",
+   "args": {
+    "table": "users",
+    "query": "SELECT * FROM users"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "query:str,table:str"
+    ],
+    [
+     "query",
+     "select * from users"
+    ],
+    [
+     "table",
+     "users"
+    ],
+    [
+     "tool",
+     "query_db"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "missing_table[qwen2.5:14b/shadow]",
+   "step": 2,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "query_db",
+   "args": {
+    "table": "users",
+    "query": "SELECT * FROM users"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "query:str,table:str"
+    ],
+    [
+     "query",
+     "select * from users"
+    ],
+    [
+     "table",
+     "users"
+    ],
+    [
+     "tool",
+     "query_db"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "missing_table[qwen2.5:14b/shadow]",
+   "step": 3,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "query_db",
+   "args": {
+    "table": "accounts",
+    "query": "SELECT * FROM accounts"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "query:str,table:str"
+    ],
+    [
+     "query",
+     "select * from accounts"
+    ],
+    [
+     "table",
+     "accounts"
+    ],
+    [
+     "tool",
+     "query_db"
+    ]
+   ],
+   "would_warn": true,
+   "warned": false,
+   "matched_record_id": [
+    0
+   ],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "missing_table[qwen2.5:14b/shadow]",
+   "step": 3,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "query_db",
+   "args": {
+    "table": "accounts",
+    "query": "SELECT * FROM accounts"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "query:str,table:str"
+    ],
+    [
+     "query",
+     "select * from accounts"
+    ],
+    [
+     "table",
+     "accounts"
+    ],
+    [
+     "tool",
+     "query_db"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "missing_table[qwen2.5:14b/shadow]",
+   "step": 4,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "query_db",
+   "args": {
+    "table": "users"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "table:str"
+    ],
+    [
+     "table",
+     "users"
+    ],
+    [
+     "tool",
+     "query_db"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "missing_table[qwen2.5:14b/shadow]",
+   "step": 4,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "query_db",
+   "args": {
+    "table": "users"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "table:str"
+    ],
+    [
+     "table",
+     "users"
+    ],
+    [
+     "tool",
+     "query_db"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "missing_table[qwen2.5:14b/shadow]",
+   "step": 5,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "query_db",
+   "args": {
+    "table": "accounts",
+    "query": "SELECT * FROM accounts LIMIT 1"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "query:str,table:str"
+    ],
+    [
+     "query",
+     "select * from accounts limit 1"
+    ],
+    [
+     "table",
+     "accounts"
+    ],
+    [
+     "tool",
+     "query_db"
+    ]
+   ],
+   "would_warn": true,
+   "warned": false,
+   "matched_record_id": [
+    0,
+    1
+   ],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "missing_table[qwen2.5:14b/shadow]",
+   "step": 5,
+   "agent": "Planner",
+   "event_type": "post_call",
+   "tool": "query_db",
+   "args": {
+    "table": "accounts",
+    "query": "SELECT * FROM accounts LIMIT 1"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "query:str,table:str"
+    ],
+    [
+     "query",
+     "select * from accounts limit 1"
+    ],
+    [
+     "table",
+     "accounts"
+    ],
+    [
+     "tool",
+     "query_db"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "missing_table[qwen2.5:14b/shadow]",
+   "step": 6,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "query_db",
+   "args": {
+    "query": "SELECT * FROM users LIMIT 1",
+    "table": "users"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "query:str,table:str"
+    ],
+    [
+     "query",
+     "select * from users limit 1"
+    ],
+    [
+     "table",
+     "users"
+    ],
+    [
+     "tool",
+     "query_db"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "missing_table[qwen2.5:14b/shadow]",
+   "step": 6,
+   "agent": "Planner",
+   "event_type": "post_call",
+   "tool": "query_db",
+   "args": {
+    "query": "SELECT * FROM users LIMIT 1",
+    "table": "users"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "query:str,table:str"
+    ],
+    [
+     "query",
+     "select * from users limit 1"
+    ],
+    [
+     "table",
+     "users"
+    ],
+    [
+     "tool",
+     "query_db"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  }
+ ],
+ "transcripts": {
+  "Coder": [
+   {
+    "role": "system",
+    "content": "You are Coder, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Query the 'accounts' table for the report. If that table does not exist, query the 'users' table instead."
+   },
+   {
+    "role": "assistant",
+    "content": "\u0e04\u0e13\u0e30\u0e01\u0e23\u0e23\u0e21\u0e01\u0e32\u0e23\u0e17\u0e33\u0e04\u0e27\u0e32\u0e21\u0e40\u0e02\u0e49\u0e32\u0e43\u0e08\u0e27\u0e48\u0e32\u0e04\u0e38\u0e13\u0e15\u0e49\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e43\u0e2b\u0e49\u0e09\u0e31\u0e19\u0e17\u0e33\u0e01\u0e32\u0e23\u0e2a\u0e2d\u0e1a\u0e16\u0e32\u0e21\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e08\u0e32\u0e01\u0e15\u0e32\u0e23\u0e32\u0e07 'accounts' \u0e43\u0e19\u0e10\u0e32\u0e19\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25 \u0e2b\u0e32\u0e01\u0e15\u0e32\u0e23\u0e32\u0e07\u0e19\u0e35\u0e49\u0e44\u0e21\u0e48\u0e21\u0e35\u0e2d\u0e22\u0e39\u0e48 \u0e43\u0e2b\u0e49\u0e17\u0e33\u0e01\u0e32\u0e23\u0e2a\u0e2d\u0e1a\u0e16\u0e32\u0e21\u0e08\u0e32\u0e01\u0e15\u0e32\u0e23\u0e32\u0e07 'users' \u0e41\u0e17\u0e19 \u0e09\u0e31\u0e19\u0e08\u0e30\u0e40\u0e23\u0e34\u0e48\u0e21\u0e15\u0e49\u0e19\u0e14\u0e49\u0e27\u0e22\u0e01\u0e32\u0e23\u0e2a\u0e2d\u0e1a\u0e16\u0e32\u0e21\u0e08\u0e32\u0e01\u0e15\u0e32\u0e23\u0e32\u0e07 'accounts' \u0e41\u0e25\u0e49\u0e27\u0e04\u0e48\u0e2d\u0e22\u0e46 \u0e1b\u0e23\u0e31\u0e1a\u0e40\u0e1b\u0e25\u0e35\u0e48\u0e22\u0e19\u0e15\u0e32\u0e21\u0e17\u0e35\u0e48\u0e08\u0e33\u0e40\u0e1b\u0e47\u0e19\n\n\u0e02\u0e31\u0e49\u0e19\u0e15\u0e2d\u0e19\u0e41\u0e23\u0e01 \u0e09\u0e31\u0e19\u0e08\u0e30\u0e17\u0e33\u0e01\u0e32\u0e23\u0e2a\u0e2d\u0e1a\u0e16\u0e32\u0e21\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e08\u0e32\u0e01\u0e15\u0e32\u0e23\u0e32\u0e07 'accounts'\n",
+    "tool_calls": [
+     {
+      "id": "call_760c3kyv",
+      "type": "function",
+      "function": {
+       "name": "query_db",
+       "arguments": "{\"table\":\"accounts\",\"query\":\"SELECT * FROM accounts\"}"
+      }
+     },
+     {
+      "id": "call_1p4sxxvk",
+      "type": "function",
+      "function": {
+       "name": "query_db",
+       "arguments": "{\"table\":\"accounts\",\"query\":\"SELECT * FROM accounts\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_760c3kyv",
+    "content": "ERROR NotFound: table accounts does not exist"
+   },
+   {
+    "role": "assistant",
+    "content": "\u0e15\u0e32\u0e23\u0e32\u0e07 'accounts' \u0e44\u0e21\u0e48\u0e21\u0e35\u0e2d\u0e22\u0e39\u0e48\u0e43\u0e19\u0e23\u0e30\u0e1a\u0e1a \u0e09\u0e31\u0e19\u0e08\u0e30\u0e17\u0e33\u0e01\u0e32\u0e23\u0e2a\u0e2d\u0e1a\u0e16\u0e32\u0e21\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e08\u0e32\u0e01\u0e15\u0e32\u0e23\u0e32\u0e07 'users' \u0e41\u0e17\u0e19\n\n",
+    "tool_calls": [
+     {
+      "id": "call_k5r862v4",
+      "type": "function",
+      "function": {
+       "name": "query_db",
+       "arguments": "{\"table\":\"users\",\"query\":\"SELECT * FROM users\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_k5r862v4",
+    "content": "OK: [{'table': 'users', 'row': 1}]"
+   }
+  ],
+  "FileOps": [
+   {
+    "role": "system",
+    "content": "You are FileOps, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Query the 'accounts' table for the export. If that table does not exist, query the 'users' table instead."
+   },
+   {
+    "role": "assistant",
+    "content": "\u0e04\u0e13\u0e30\u0e01\u0e23\u0e23\u0e21\u0e01\u0e32\u0e23\u0e17\u0e33\u0e04\u0e27\u0e32\u0e21\u0e40\u0e02\u0e49\u0e32\u0e43\u0e08\u0e27\u0e48\u0e32\u0e04\u0e38\u0e13\u0e15\u0e49\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e43\u0e2b\u0e49\u0e09\u0e31\u0e19\u0e17\u0e33\u0e01\u0e32\u0e23\u0e2a\u0e2d\u0e1a\u0e16\u0e32\u0e21\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e08\u0e32\u0e01\u0e15\u0e32\u0e23\u0e32\u0e07 'accounts' \u0e43\u0e19\u0e10\u0e32\u0e19\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25 \u0e2b\u0e32\u0e01\u0e15\u0e32\u0e23\u0e32\u0e07\u0e19\u0e35\u0e49\u0e44\u0e21\u0e48\u0e21\u0e35\u0e2d\u0e22\u0e39\u0e48 \u0e43\u0e2b\u0e49\u0e17\u0e33\u0e01\u0e32\u0e23\u0e2a\u0e2d\u0e1a\u0e16\u0e32\u0e21\u0e08\u0e32\u0e01\u0e15\u0e32\u0e23\u0e32\u0e07 'users' \u0e41\u0e17\u0e19\n\n\u0e09\u0e31\u0e19\u0e08\u0e30\u0e40\u0e23\u0e34\u0e48\u0e21\u0e15\u0e49\u0e19\u0e14\u0e49\u0e27\u0e22\u0e01\u0e32\u0e23\u0e2a\u0e2d\u0e1a\u0e16\u0e32\u0e21\u0e08\u0e32\u0e01\u0e15\u0e32\u0e23\u0e32\u0e07 'accounts' \u0e41\u0e25\u0e49\u0e27\u0e01\u0e31\u0e19\n",
+    "tool_calls": [
+     {
+      "id": "call_tdprogw3",
+      "type": "function",
+      "function": {
+       "name": "query_db",
+       "arguments": "{\"table\":\"accounts\",\"query\":\"SELECT * FROM accounts\"}"
+      }
+     },
+     {
+      "id": "call_yt5p7d67",
+      "type": "function",
+      "function": {
+       "name": "query_db",
+       "arguments": "{\"table\":\"users\",\"query\":\"SELECT * FROM users\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_tdprogw3",
+    "content": "ERROR NotFound: table accounts does not exist"
+   },
+   {
+    "role": "assistant",
+    "content": "\u0e15\u0e32\u0e23\u0e32\u0e07 'accounts' \u0e44\u0e21\u0e48\u0e21\u0e35\u0e2d\u0e22\u0e39\u0e48\u0e43\u0e19\u0e23\u0e30\u0e1a\u0e1a \u0e09\u0e31\u0e19\u0e08\u0e30\u0e17\u0e33\u0e01\u0e32\u0e23\u0e2a\u0e2d\u0e1a\u0e16\u0e32\u0e21\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e08\u0e32\u0e01\u0e15\u0e32\u0e23\u0e32\u0e07 'users' \u0e41\u0e17\u0e19\n",
+    "tool_calls": [
+     {
+      "id": "call_kdz06nd6",
+      "type": "function",
+      "function": {
+       "name": "query_db",
+       "arguments": "{\"table\":\"users\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_kdz06nd6",
+    "content": "OK: [{'table': 'users', 'row': 1}]"
+   }
+  ],
+  "Planner": [
+   {
+    "role": "system",
+    "content": "You are Planner, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Query the 'accounts' table for the summary. If that table does not exist, query the 'users' table instead."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_ex66oblf",
+      "type": "function",
+      "function": {
+       "name": "query_db",
+       "arguments": "{\"table\":\"accounts\",\"query\":\"SELECT * FROM accounts LIMIT 1\"}"
+      }
+     },
+     {
+      "id": "call_ruqdmrnr",
+      "type": "function",
+      "function": {
+       "name": "query_db",
+       "arguments": "{\"query\":\"SELECT * FROM users LIMIT 1\",\"table\":\"users\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_ex66oblf",
+    "content": "ERROR NotFound: table accounts does not exist"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_29tz9uaw",
+      "type": "function",
+      "function": {
+       "name": "query_db",
+       "arguments": "{\"query\":\"SELECT * FROM users LIMIT 1\",\"table\":\"users\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_29tz9uaw",
+    "content": "OK: [{'table': 'users', 'row': 1}]"
+   }
+  ]
+ }
+}

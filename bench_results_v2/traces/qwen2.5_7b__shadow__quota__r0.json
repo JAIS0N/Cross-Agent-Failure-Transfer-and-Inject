@@ -1,0 +1,239 @@
+{
+ "model": "qwen2.5:7b",
+ "mode": "shadow",
+ "scenario": "quota",
+ "repeat": 0,
+ "success": true,
+ "failures": 0,
+ "repeated_peer_failures": 0,
+ "warnings_delivered": 0,
+ "ignored_warnings": 0,
+ "total_tokens": 1976,
+ "held_tp": 0,
+ "held_fp": 0,
+ "doomed_attempts": 0,
+ "peer_doomed_attempts": 0,
+ "peer_doomed_executed": 0,
+ "events": [
+  {
+   "episode": "quota[qwen2.5:7b/shadow]",
+   "step": 1,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/tmp/a.txt",
+    "content": "full dataset dump"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/a.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "quota[qwen2.5:7b/shadow]",
+   "step": 1,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/tmp/a.txt",
+    "content": "full dataset dump"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/a.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "quota[qwen2.5:7b/shadow]",
+   "step": 2,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/tmp/b.txt",
+    "content": "full log bundle"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/b.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "quota[qwen2.5:7b/shadow]",
+   "step": 2,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/tmp/b.txt",
+    "content": "full log bundle"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/b.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  }
+ ],
+ "transcripts": {
+  "FileOps": [
+   {
+    "role": "system",
+    "content": "You are FileOps, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Save the full dataset dump to /tmp/a.txt. Prefer the complete dump; if the disk quota is exceeded, save a compact version instead."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_dgd63giv",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"path\":\"/tmp/a.txt\",\"content\":\"full dataset dump\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_dgd63giv",
+    "content": "OK: wrote /tmp/a.txt"
+   }
+  ],
+  "Coder": [
+   {
+    "role": "system",
+    "content": "You are Coder, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Save the full log bundle to /tmp/b.txt. Prefer the complete bundle; if the disk quota is exceeded, save a compact version instead."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_0ijiqf59",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"path\":\"/tmp/b.txt\",\"content\":\"full log bundle\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_0ijiqf59",
+    "content": "OK: wrote /tmp/b.txt"
+   }
+  ]
+ }
+}

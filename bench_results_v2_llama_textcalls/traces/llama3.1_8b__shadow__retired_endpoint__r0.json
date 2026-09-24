@@ -1,0 +1,822 @@
+{
+ "model": "llama3.1:8b",
+ "mode": "shadow",
+ "scenario": "retired_endpoint",
+ "repeat": 0,
+ "success": true,
+ "failures": 3,
+ "repeated_peer_failures": 2,
+ "warnings_delivered": 0,
+ "ignored_warnings": 0,
+ "total_tokens": 6202,
+ "held_tp": 0,
+ "held_fp": 0,
+ "doomed_attempts": 3,
+ "peer_doomed_attempts": 2,
+ "peer_doomed_executed": 2,
+ "text_calls": 5,
+ "events": [
+  {
+   "episode": "retired_endpoint[llama3.1:8b/shadow]",
+   "step": 1,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "/api/render/v2",
+    "payload": "job1"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "/api/render/v2"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[llama3.1:8b/shadow]",
+   "step": 1,
+   "agent": "Planner",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "/api/render/v2",
+    "payload": "job1"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "/api/render/v2"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[llama3.1:8b/shadow]",
+   "step": 2,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "read_file",
+   "args": {
+    "path": "/api/ENDPOINTS.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/api/endpoints.txt"
+    ],
+    [
+     "path_prefix",
+     "/api"
+    ],
+    [
+     "tool",
+     "read_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "retired_endpoint[llama3.1:8b/shadow]",
+   "step": 2,
+   "agent": "Planner",
+   "event_type": "post_call",
+   "tool": "read_file",
+   "args": {
+    "path": "/api/ENDPOINTS.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/api/endpoints.txt"
+    ],
+    [
+     "path_prefix",
+     "/api"
+    ],
+    [
+     "tool",
+     "read_file"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "retired_endpoint[llama3.1:8b/shadow]",
+   "step": 3,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "/v2/render",
+    "payload": "job1"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "/v2/render"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "retired_endpoint[llama3.1:8b/shadow]",
+   "step": 3,
+   "agent": "Planner",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "/v2/render",
+    "payload": "job1"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "/v2/render"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "retired_endpoint[llama3.1:8b/shadow]",
+   "step": 4,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "/api/render/v2",
+    "payload": "job2"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "/api/render/v2"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": true,
+   "warned": false,
+   "matched_record_id": [
+    0
+   ],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[llama3.1:8b/shadow]",
+   "step": 4,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "/api/render/v2",
+    "payload": "job2"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "/api/render/v2"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[llama3.1:8b/shadow]",
+   "step": 5,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "read_file",
+   "args": {
+    "path": "/api/ENDPOINTS.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/api/endpoints.txt"
+    ],
+    [
+     "path_prefix",
+     "/api"
+    ],
+    [
+     "tool",
+     "read_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "retired_endpoint[llama3.1:8b/shadow]",
+   "step": 5,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "read_file",
+   "args": {
+    "path": "/api/ENDPOINTS.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/api/endpoints.txt"
+    ],
+    [
+     "path_prefix",
+     "/api"
+    ],
+    [
+     "tool",
+     "read_file"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "retired_endpoint[llama3.1:8b/shadow]",
+   "step": 6,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "/v2/render",
+    "payload": "job2"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "/v2/render"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "retired_endpoint[llama3.1:8b/shadow]",
+   "step": 6,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "/v2/render",
+    "payload": "job2"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "/v2/render"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "retired_endpoint[llama3.1:8b/shadow]",
+   "step": 7,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "/api/render/v2",
+    "payload": "job3"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "/api/render/v2"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": true,
+   "warned": false,
+   "matched_record_id": [
+    0,
+    1
+   ],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[llama3.1:8b/shadow]",
+   "step": 7,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "/api/render/v2",
+    "payload": "job3"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "/api/render/v2"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[llama3.1:8b/shadow]",
+   "step": 8,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "read_file",
+   "args": {
+    "path": "/api/ENDPOINTS.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/api/endpoints.txt"
+    ],
+    [
+     "path_prefix",
+     "/api"
+    ],
+    [
+     "tool",
+     "read_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "retired_endpoint[llama3.1:8b/shadow]",
+   "step": 8,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "read_file",
+   "args": {
+    "path": "/api/ENDPOINTS.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/api/endpoints.txt"
+    ],
+    [
+     "path_prefix",
+     "/api"
+    ],
+    [
+     "tool",
+     "read_file"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "retired_endpoint[llama3.1:8b/shadow]",
+   "step": 9,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "/v2/render",
+    "payload": "job3"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "/v2/render"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "retired_endpoint[llama3.1:8b/shadow]",
+   "step": 9,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "/v2/render",
+    "payload": "job3"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "/v2/render"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  }
+ ],
+ "transcripts": {
+  "Planner": [
+   {
+    "role": "system",
+    "content": "You are Planner, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Render job1 with the render API (payload 'job1'). The render API was moved to version 2 last month; the endpoint list is in /api/ENDPOINTS.txt."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_0we9zg5z",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\":\"/api/render/v2\",\"payload\":\"job1\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_0we9zg5z",
+    "content": "ERROR NotFound: unknown endpoint /api/render/v2"
+   },
+   {
+    "role": "assistant",
+    "content": "It seems like the endpoint for the render API version 2 is not available. Let me check the endpoint list in /api/ENDPOINTS.txt.\n\n{\"name\": \"read_file\", \"parameters\": {\"path\": \"/api/ENDPOINTS.txt\"}}",
+    "tool_calls": [
+     {
+      "id": "textcall_1",
+      "type": "function",
+      "function": {
+       "name": "read_file",
+       "arguments": "{\"path\": \"/api/ENDPOINTS.txt\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "textcall_1",
+    "content": "OK: render (current, v2): /v2/render\nrender (v1, retired): /render"
+   },
+   {
+    "role": "assistant",
+    "content": "Since the render API was moved to version 2, I will use the current version. The endpoint for the render API is /v2/render.\n\n{\"name\": \"call_api\", \"parameters\": {\"endpoint\":\"/v2/render\",\"payload\":\"job1\"}}",
+    "tool_calls": [
+     {
+      "id": "textcall_2",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\": \"/v2/render\", \"payload\": \"job1\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "textcall_2",
+    "content": "OK: {'endpoint': '/v2/render', 'status': 200}"
+   },
+   {
+    "role": "assistant",
+    "content": "The render job1 was successfully rendered using the render API version 2."
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   }
+  ],
+  "Coder": [
+   {
+    "role": "system",
+    "content": "You are Coder, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Render job2 with the render API (payload 'job2'). The render API was moved to version 2 last month; the endpoint list is in /api/ENDPOINTS.txt."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_kaef7uq6",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\":\"/api/render/v2\",\"payload\":\"job2\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_kaef7uq6",
+    "content": "ERROR NotFound: unknown endpoint /api/render/v2"
+   },
+   {
+    "role": "assistant",
+    "content": "It seems like the endpoint for the render API version 2 is not available. Let me check the endpoint list in /api/ENDPOINTS.txt.\n\n{\"name\": \"read_file\", \"parameters\": {\"path\": \"/api/ENDPOINTS.txt\"}}",
+    "tool_calls": [
+     {
+      "id": "textcall_3",
+      "type": "function",
+      "function": {
+       "name": "read_file",
+       "arguments": "{\"path\": \"/api/ENDPOINTS.txt\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "textcall_3",
+    "content": "OK: render (current, v2): /v2/render\nrender (v1, retired): /render"
+   },
+   {
+    "role": "assistant",
+    "content": "Since the render API was moved to version 2, I will use the current version. The endpoint for the render API is /v2/render.\n\n{\"name\": \"call_api\", \"parameters\": {\"endpoint\":\"/v2/render\",\"payload\":\"job2\"}}",
+    "tool_calls": [
+     {
+      "id": "textcall_4",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\": \"/v2/render\", \"payload\": \"job2\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "textcall_4",
+    "content": "OK: {'endpoint': '/v2/render', 'status': 200}"
+   },
+   {
+    "role": "assistant",
+    "content": "The render job2 was successfully rendered with the render API version 2."
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   }
+  ],
+  "FileOps": [
+   {
+    "role": "system",
+    "content": "You are FileOps, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Render job3 with the render API (payload 'job3'). The render API was moved to version 2 last month; the endpoint list is in /api/ENDPOINTS.txt."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_spl2e8ww",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\":\"/api/render/v2\",\"payload\":\"job3\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_spl2e8ww",
+    "content": "ERROR NotFound: unknown endpoint /api/render/v2"
+   },
+   {
+    "role": "assistant",
+    "content": "It seems like the endpoint for the render API version 2 is not available. Let me check the endpoint list in /api/ENDPOINTS.txt to see if there's an alternative.\n\n{\"name\": \"read_file\", \"parameters\": {\"path\": \"/api/ENDPOINTS.txt\"}}",
+    "tool_calls": [
+     {
+      "id": "textcall_5",
+      "type": "function",
+      "function": {
+       "name": "read_file",
+       "arguments": "{\"path\": \"/api/ENDPOINTS.txt\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "textcall_5",
+    "content": "OK: render (current, v2): /v2/render\nrender (v1, retired): /render"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_drf3kr94",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\":\"/v2/render\",\"payload\":\"job3\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_drf3kr94",
+    "content": "OK: {'endpoint': '/v2/render', 'status': 200}"
+   },
+   {
+    "role": "assistant",
+    "content": "The render job3 was successfully rendered using the render API version 2."
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   }
+  ]
+ }
+}

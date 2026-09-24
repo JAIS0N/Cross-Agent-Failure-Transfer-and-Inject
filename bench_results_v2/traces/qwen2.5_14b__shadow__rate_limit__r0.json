@@ -1,0 +1,468 @@
+{
+ "model": "qwen2.5:14b",
+ "mode": "shadow",
+ "scenario": "rate_limit",
+ "repeat": 0,
+ "success": true,
+ "failures": 2,
+ "repeated_peer_failures": 1,
+ "warnings_delivered": 0,
+ "ignored_warnings": 0,
+ "total_tokens": 4191,
+ "held_tp": 0,
+ "held_fp": 0,
+ "doomed_attempts": 2,
+ "peer_doomed_attempts": 1,
+ "peer_doomed_executed": 1,
+ "events": [
+  {
+   "episode": "rate_limit[qwen2.5:14b/shadow]",
+   "step": 1,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "/render",
+    "payload": "job1"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "/render"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "rate_limit[qwen2.5:14b/shadow]",
+   "step": 1,
+   "agent": "Planner",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "/render",
+    "payload": "job1"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "/render"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "rate_limit[qwen2.5:14b/shadow]",
+   "step": 2,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "/render",
+    "payload": "job2"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "/render"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "RateLimited"
+  },
+  {
+   "episode": "rate_limit[qwen2.5:14b/shadow]",
+   "step": 2,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "/render",
+    "payload": "job2"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "/render"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "RateLimited"
+  },
+  {
+   "episode": "rate_limit[qwen2.5:14b/shadow]",
+   "step": 3,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "payload": "job2",
+    "endpoint": "/render-batch"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "/render-batch"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "rate_limit[qwen2.5:14b/shadow]",
+   "step": 3,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "payload": "job2",
+    "endpoint": "/render-batch"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "/render-batch"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "rate_limit[qwen2.5:14b/shadow]",
+   "step": 4,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "payload": "job3",
+    "endpoint": "/render"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "/render"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": true,
+   "warned": false,
+   "matched_record_id": [
+    0
+   ],
+   "oracle_would_fail": "RateLimited"
+  },
+  {
+   "episode": "rate_limit[qwen2.5:14b/shadow]",
+   "step": 4,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "payload": "job3",
+    "endpoint": "/render"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "/render"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "RateLimited"
+  },
+  {
+   "episode": "rate_limit[qwen2.5:14b/shadow]",
+   "step": 5,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "/render-batch",
+    "payload": "job3"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "/render-batch"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "rate_limit[qwen2.5:14b/shadow]",
+   "step": 5,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "/render-batch",
+    "payload": "job3"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "/render-batch"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  }
+ ],
+ "transcripts": {
+  "Planner": [
+   {
+    "role": "system",
+    "content": "You are Planner, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Render job1 by calling the /render endpoint with payload 'job1'."
+   },
+   {
+    "role": "assistant",
+    "content": "\u0e04\u0e13\u0e30\u0e01\u0e23\u0e23\u0e21\u0e01\u0e32\u0e23\u0e17\u0e33 API call \u0e44\u0e1b\u0e22\u0e31\u0e07 endpoint /render \u0e42\u0e14\u0e22\u0e43\u0e0a\u0e49 payload 'job1' \u0e14\u0e31\u0e07\u0e19\u0e35\u0e49:\n\n",
+    "tool_calls": [
+     {
+      "id": "call_rmke6vdz",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\":\"/render\",\"payload\":\"job1\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_rmke6vdz",
+    "content": "OK: {'endpoint': '/render', 'status': 200}"
+   }
+  ],
+  "Coder": [
+   {
+    "role": "system",
+    "content": "You are Coder, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Render job2 via the /render endpoint (payload 'job2'). If /render is rate limited, use the /render-batch endpoint instead."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_t49vvqud",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\":\"/render\",\"payload\":\"job2\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_t49vvqud",
+    "content": "ERROR RateLimited: rate limit exhausted for /render"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_pom4xjyi",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"payload\":\"job2\",\"endpoint\":\"/render-batch\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_pom4xjyi",
+    "content": "OK: {'endpoint': '/render-batch', 'status': 200}"
+   }
+  ],
+  "FileOps": [
+   {
+    "role": "system",
+    "content": "You are FileOps, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Render job3 via the /render endpoint (payload 'job3'). If /render is rate limited, use the /render-batch endpoint instead."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_oytq8a6f",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"payload\":\"job3\",\"endpoint\":\"/render\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_oytq8a6f",
+    "content": "ERROR RateLimited: rate limit exhausted for /render"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_bdmmop3g",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\":\"/render-batch\",\"payload\":\"job3\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_bdmmop3g",
+    "content": "OK: {'endpoint': '/render-batch', 'status': 200}"
+   }
+  ]
+ }
+}

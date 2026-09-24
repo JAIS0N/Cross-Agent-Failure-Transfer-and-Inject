@@ -1,0 +1,392 @@
+{
+ "model": "qwen2.5:14b",
+ "mode": "inject",
+ "scenario": "quota_small_ok",
+ "repeat": 0,
+ "success": true,
+ "failures": 1,
+ "repeated_peer_failures": 0,
+ "warnings_delivered": 1,
+ "ignored_warnings": 0,
+ "total_tokens": 3600,
+ "held_tp": 0,
+ "held_fp": 1,
+ "doomed_attempts": 1,
+ "peer_doomed_attempts": 0,
+ "peer_doomed_executed": 0,
+ "events": [
+  {
+   "episode": "quota_small_ok[qwen2.5:14b/inject]",
+   "step": 1,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "content": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "path": "/tmp/dump.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/dump.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "QuotaExceeded"
+  },
+  {
+   "episode": "quota_small_ok[qwen2.5:14b/inject]",
+   "step": 1,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "content": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "path": "/tmp/dump.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/dump.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "QuotaExceeded"
+  },
+  {
+   "episode": "quota_small_ok[qwen2.5:14b/inject]",
+   "step": 2,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "content": "ok",
+    "path": "/tmp/note.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/note.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": true,
+   "warned": true,
+   "matched_record_id": [
+    0
+   ],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "quota_small_ok[qwen2.5:14b/inject]",
+   "step": 3,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "list_dir",
+   "args": {
+    "path": "/tmp"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/tmp"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "tool",
+     "list_dir"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "quota_small_ok[qwen2.5:14b/inject]",
+   "step": 3,
+   "agent": "Planner",
+   "event_type": "post_call",
+   "tool": "list_dir",
+   "args": {
+    "path": "/tmp"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/tmp"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "tool",
+     "list_dir"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "quota_small_ok[qwen2.5:14b/inject]",
+   "step": 4,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "content": "ok",
+    "path": "/tmp/note.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/note.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": true,
+   "warned": false,
+   "matched_record_id": [
+    0
+   ],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "quota_small_ok[qwen2.5:14b/inject]",
+   "step": 4,
+   "agent": "Planner",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "content": "ok",
+    "path": "/tmp/note.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/note.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  }
+ ],
+ "transcripts": {
+  "FileOps": [
+   {
+    "role": "system",
+    "content": "You are FileOps, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Save the full dataset dump (the letter X repeated 80 times) to /tmp/dump.txt. If the disk quota is exceeded, give up and reply DONE."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_lt21zcyr",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"content\":\"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\"path\":\"/tmp/dump.txt\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_lt21zcyr",
+    "content": "ERROR QuotaExceeded: disk quota exceeded"
+   }
+  ],
+  "Planner": [
+   {
+    "role": "system",
+    "content": "You are Planner, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Save the two-letter status note 'ok' to /tmp/note.txt. The monitor only reads /tmp/note.txt."
+   },
+   {
+    "role": "assistant",
+    "content": "\u0e04\u0e13\u0e30\u0e01\u0e23\u0e23\u0e21\u0e01\u0e32\u0e23\u0e17\u0e33\u0e15\u0e32\u0e21\u0e04\u0e33\u0e2a\u0e31\u0e48\u0e07\u0e14\u0e31\u0e07\u0e01\u0e25\u0e48\u0e32\u0e27:\n\n",
+    "tool_calls": [
+     {
+      "id": "call_cja9xm2d",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"content\":\"ok\",\"path\":\"/tmp/note.txt\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_cja9xm2d",
+    "content": "!! PEER FAILURE WARNING\nAgent FileOps attempted write_file with a matching pattern (arg_types=content:str,path:str, path_prefix=/tmp, perm=rw, tool=write_file)\nat step 1 and failed with QuotaExceeded: \"disk quota exceeded\".\nConsider: (a) verifying the precondition first, (b) an alternative\ntool/approach, or (c) proceeding only if your situation differs.\n[This call was NOT executed. Reconsider: choose a verified alternative, or repeat the call to proceed anyway.]"
+   },
+   {
+    "role": "assistant",
+    "content": "It seems that the disk quota has been exceeded when trying to write to /tmp/note.txt. Let's check the current contents of /tmp to see if there are any unnecessary files that can be removed before attempting to save the status note again.\n",
+    "tool_calls": [
+     {
+      "id": "call_u4eshg48",
+      "type": "function",
+      "function": {
+       "name": "list_dir",
+       "arguments": "{\"path\":\"/tmp\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_u4eshg48",
+    "content": "OK: []"
+   },
+   {
+    "role": "assistant",
+    "content": "The /tmp directory is currently empty. Let's try saving the status note 'ok' to /tmp/note.txt again.\n",
+    "tool_calls": [
+     {
+      "id": "call_i7d7f0i6",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"content\":\"ok\",\"path\":\"/tmp/note.txt\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_i7d7f0i6",
+    "content": "OK: wrote /tmp/note.txt"
+   }
+  ]
+ }
+}

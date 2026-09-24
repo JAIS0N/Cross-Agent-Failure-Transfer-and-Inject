@@ -1,0 +1,722 @@
+{
+ "model": "qwen2.5:7b",
+ "mode": "inject",
+ "scenario": "retired_endpoint",
+ "repeat": 0,
+ "success": false,
+ "failures": 5,
+ "repeated_peer_failures": 0,
+ "warnings_delivered": 4,
+ "ignored_warnings": 0,
+ "total_tokens": 14512,
+ "held_tp": 4,
+ "held_fp": 0,
+ "doomed_attempts": 9,
+ "peer_doomed_attempts": 6,
+ "peer_doomed_executed": 2,
+ "events": [
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/inject]",
+   "step": 1,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "render/v2",
+    "payload": "job1"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render/v2"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/inject]",
+   "step": 1,
+   "agent": "Planner",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "render/v2",
+    "payload": "job1"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render/v2"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/inject]",
+   "step": 2,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "payload": "job1",
+    "endpoint": "render"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/inject]",
+   "step": 2,
+   "agent": "Planner",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "payload": "job1",
+    "endpoint": "render"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/inject]",
+   "step": 3,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "render",
+    "payload": "job1"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/inject]",
+   "step": 3,
+   "agent": "Planner",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "render",
+    "payload": "job1"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/inject]",
+   "step": 4,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "render/v2",
+    "payload": "job2"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render/v2"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": true,
+   "warned": true,
+   "matched_record_id": [
+    0
+   ],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/inject]",
+   "step": 5,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "render/v1",
+    "payload": "job2"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render/v1"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/inject]",
+   "step": 5,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "render/v1",
+    "payload": "job2"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render/v1"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/inject]",
+   "step": 6,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "render/latest",
+    "payload": "job2"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render/latest"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/inject]",
+   "step": 6,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "render/latest",
+    "payload": "job2"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render/latest"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/inject]",
+   "step": 7,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "render/v2",
+    "payload": "job3"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render/v2"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": true,
+   "warned": true,
+   "matched_record_id": [
+    0
+   ],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/inject]",
+   "step": 8,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "render/v1",
+    "payload": "job3"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render/v1"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": true,
+   "warned": true,
+   "matched_record_id": [
+    2
+   ],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "retired_endpoint[qwen2.5:7b/inject]",
+   "step": 9,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "call_api",
+   "args": {
+    "endpoint": "render/latest",
+    "payload": "job3"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "endpoint:str,payload:str"
+    ],
+    [
+     "endpoint",
+     "render/latest"
+    ],
+    [
+     "payload_kind",
+     "str"
+    ],
+    [
+     "tool",
+     "call_api"
+    ]
+   ],
+   "would_warn": true,
+   "warned": true,
+   "matched_record_id": [
+    3
+   ],
+   "oracle_would_fail": "NotFound"
+  }
+ ],
+ "transcripts": {
+  "Planner": [
+   {
+    "role": "system",
+    "content": "You are Planner, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Render job1 with the render API (payload 'job1'). The render API was moved to version 2 last month."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_vbhu008a",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\":\"render/v2\",\"payload\":\"job1\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_vbhu008a",
+    "content": "ERROR NotFound: unknown endpoint render/v2"
+   },
+   {
+    "role": "assistant",
+    "content": "It seems the endpoint has been updated, but the version number might be incorrect. Let's try the default endpoint without specifying a version.\n\n",
+    "tool_calls": [
+     {
+      "id": "call_lqkznime",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"payload\":\"job1\",\"endpoint\":\"render\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_lqkznime",
+    "content": "ERROR NotFound: unknown endpoint render"
+   },
+   {
+    "role": "assistant",
+    "content": "The render API endpoint does not seem to exist. Let's try using the default version that might be assumed by the API.\n\n",
+    "tool_calls": [
+     {
+      "id": "call_1lsedu9w",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\":\"render\",\"payload\":\"job1\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_1lsedu9w",
+    "content": "ERROR NotFound: unknown endpoint render"
+   },
+   {
+    "role": "assistant",
+    "content": "It appears that the render API endpoint is not available. We might need to check with the API documentation or the team for the correct endpoint URL. \n\nFor now, let's verify if there's any other API documentation or configuration that might help us find the correct endpoint. \n\nDo you have access to the API documentation or any other configuration files that might contain the correct endpoint URL?"
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   },
+   {
+    "role": "assistant",
+    "content": "If not, we can try reaching out to the team for assistance."
+   },
+   {
+    "role": "assistant",
+    "content": " Would you like to proceed with that?"
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   }
+  ],
+  "Coder": [
+   {
+    "role": "system",
+    "content": "You are Coder, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Render job2 with the render API (payload 'job2'). The render API was moved to version 2 last month."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_r84fvs30",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\":\"render/v2\",\"payload\":\"job2\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_r84fvs30",
+    "content": "!! PEER FAILURE WARNING\nAgent Planner attempted call_api with a matching pattern (arg_types=endpoint:str,payload:str, endpoint=render/v2, tool=call_api)\nat step 1 and failed with NotFound: \"unknown endpoint render/v2\".\nConsider: (a) verifying the precondition first, (b) an alternative\ntool/approach, or (c) proceeding only if your situation differs.\n[This call was NOT executed. Reconsider: choose a verified alternative, or repeat the call to proceed anyway.]"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_orarh2rx",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\":\"render/v1\",\"payload\":\"job2\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_orarh2rx",
+    "content": "ERROR NotFound: unknown endpoint render/v1"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_ekidc0jf",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\":\"render/latest\",\"payload\":\"job2\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_ekidc0jf",
+    "content": "ERROR NotFound: unknown endpoint render/latest"
+   }
+  ],
+  "FileOps": [
+   {
+    "role": "system",
+    "content": "You are FileOps, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Render job3 with the render API (payload 'job3'). The render API was moved to version 2 last month."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_8mufnwp5",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\":\"render/v2\",\"payload\":\"job3\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_8mufnwp5",
+    "content": "!! PEER FAILURE WARNING\nAgent Planner attempted call_api with a matching pattern (arg_types=endpoint:str,payload:str, endpoint=render/v2, tool=call_api)\nat step 1 and failed with NotFound: \"unknown endpoint render/v2\".\nConsider: (a) verifying the precondition first, (b) an alternative\ntool/approach, or (c) proceeding only if your situation differs.\n[This call was NOT executed. Reconsider: choose a verified alternative, or repeat the call to proceed anyway.]"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_eur3fqsm",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\":\"render/v1\",\"payload\":\"job3\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_eur3fqsm",
+    "content": "!! PEER FAILURE WARNING\nAgent Coder attempted call_api with a matching pattern (arg_types=endpoint:str,payload:str, endpoint=render/v1, tool=call_api)\nat step 5 and failed with NotFound: \"unknown endpoint render/v1\".\nConsider: (a) verifying the precondition first, (b) an alternative\ntool/approach, or (c) proceeding only if your situation differs.\n[This call was NOT executed. Reconsider: choose a verified alternative, or repeat the call to proceed anyway.]"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_jyc54hcx",
+      "type": "function",
+      "function": {
+       "name": "call_api",
+       "arguments": "{\"endpoint\":\"render/latest\",\"payload\":\"job3\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_jyc54hcx",
+    "content": "!! PEER FAILURE WARNING\nAgent Coder attempted call_api with a matching pattern (arg_types=endpoint:str,payload:str, endpoint=render/latest, tool=call_api)\nat step 6 and failed with NotFound: \"unknown endpoint render/latest\".\nConsider: (a) verifying the precondition first, (b) an alternative\ntool/approach, or (c) proceeding only if your situation differs.\n[This call was NOT executed. Reconsider: choose a verified alternative, or repeat the call to proceed anyway.]"
+   },
+   {
+    "role": "assistant",
+    "content": "It seems that the render API endpoint is not available in any of the versions. Let's try reaching out to the API documentation or support to confirm the correct endpoint or version to use for rendering job3.\n\nIn the meantime, I will check if there are any other APIs or methods that can be used for rendering the job.\n\nWould you like me to proceed with checking other available APIs or methods?"
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   },
+   {
+    "role": "assistant",
+    "content": "If yes, I will call the `call_api` function with a different endpoint or method. If no, we will need to wait for further instructions or updates from the API documentation or support team."
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   },
+   {
+    "role": "assistant",
+    "content": "What would you like to do next?"
+   }
+  ]
+ }
+}

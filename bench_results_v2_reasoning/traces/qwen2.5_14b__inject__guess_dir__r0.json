@@ -1,0 +1,592 @@
+{
+ "model": "qwen2.5:14b",
+ "mode": "inject",
+ "scenario": "guess_dir",
+ "repeat": 0,
+ "success": true,
+ "failures": 0,
+ "repeated_peer_failures": 0,
+ "warnings_delivered": 0,
+ "ignored_warnings": 0,
+ "total_tokens": 4932,
+ "held_tp": 0,
+ "held_fp": 0,
+ "doomed_attempts": 0,
+ "peer_doomed_attempts": 0,
+ "peer_doomed_executed": 0,
+ "text_calls": 0,
+ "events": [
+  {
+   "episode": "guess_dir[qwen2.5:14b/inject]",
+   "step": 1,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "read_file",
+   "args": {
+    "path": "/README.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/readme.txt"
+    ],
+    [
+     "path_prefix",
+     "/readme.txt"
+    ],
+    [
+     "tool",
+     "read_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "guess_dir[qwen2.5:14b/inject]",
+   "step": 1,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "read_file",
+   "args": {
+    "path": "/README.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/readme.txt"
+    ],
+    [
+     "path_prefix",
+     "/readme.txt"
+    ],
+    [
+     "tool",
+     "read_file"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "guess_dir[qwen2.5:14b/inject]",
+   "step": 2,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "content": "sales",
+    "path": "/reports_2026/sales.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/reports_2026/sales.txt"
+    ],
+    [
+     "path_prefix",
+     "/reports_2026"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "guess_dir[qwen2.5:14b/inject]",
+   "step": 2,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "content": "sales",
+    "path": "/reports_2026/sales.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/reports_2026/sales.txt"
+    ],
+    [
+     "path_prefix",
+     "/reports_2026"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "guess_dir[qwen2.5:14b/inject]",
+   "step": 3,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "read_file",
+   "args": {
+    "path": "/README.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/readme.txt"
+    ],
+    [
+     "path_prefix",
+     "/readme.txt"
+    ],
+    [
+     "tool",
+     "read_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "guess_dir[qwen2.5:14b/inject]",
+   "step": 3,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "read_file",
+   "args": {
+    "path": "/README.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/readme.txt"
+    ],
+    [
+     "path_prefix",
+     "/readme.txt"
+    ],
+    [
+     "tool",
+     "read_file"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "guess_dir[qwen2.5:14b/inject]",
+   "step": 4,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "content": "costs",
+    "path": "/reports_2026/costs.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/reports_2026/costs.txt"
+    ],
+    [
+     "path_prefix",
+     "/reports_2026"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "guess_dir[qwen2.5:14b/inject]",
+   "step": 4,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "content": "costs",
+    "path": "/reports_2026/costs.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/reports_2026/costs.txt"
+    ],
+    [
+     "path_prefix",
+     "/reports_2026"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "guess_dir[qwen2.5:14b/inject]",
+   "step": 5,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "read_file",
+   "args": {
+    "path": "/README.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/readme.txt"
+    ],
+    [
+     "path_prefix",
+     "/readme.txt"
+    ],
+    [
+     "tool",
+     "read_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "guess_dir[qwen2.5:14b/inject]",
+   "step": 5,
+   "agent": "Planner",
+   "event_type": "post_call",
+   "tool": "read_file",
+   "args": {
+    "path": "/README.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "path:str"
+    ],
+    [
+     "path",
+     "/readme.txt"
+    ],
+    [
+     "path_prefix",
+     "/readme.txt"
+    ],
+    [
+     "tool",
+     "read_file"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "guess_dir[qwen2.5:14b/inject]",
+   "step": 6,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "content": "plan",
+    "path": "/reports_2026/plan.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/reports_2026/plan.txt"
+    ],
+    [
+     "path_prefix",
+     "/reports_2026"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "guess_dir[qwen2.5:14b/inject]",
+   "step": 6,
+   "agent": "Planner",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "content": "plan",
+    "path": "/reports_2026/plan.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/reports_2026/plan.txt"
+    ],
+    [
+     "path_prefix",
+     "/reports_2026"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  }
+ ],
+ "transcripts": {
+  "FileOps": [
+   {
+    "role": "system",
+    "content": "You are FileOps, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Save 'sales' as sales.txt in the team's reports folder. If you are unsure of the folder's exact name, read /README.txt first."
+   },
+   {
+    "role": "assistant",
+    "content": "First, I will read the README.txt file to determine the correct folder name for the reports.\n",
+    "tool_calls": [
+     {
+      "id": "call_7md2mlds",
+      "type": "function",
+      "function": {
+       "name": "read_file",
+       "arguments": "{\"path\":\"/README.txt\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_7md2mlds",
+    "content": "OK: The team's reports folder is /reports_2026"
+   },
+   {
+    "role": "assistant",
+    "content": "Now that I know the reports folder is /reports_2026, I will save the 'sales' content as sales.txt in this folder.\n",
+    "tool_calls": [
+     {
+      "id": "call_qbh5jpqb",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"content\":\"sales\",\"path\":\"/reports_2026/sales.txt\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_qbh5jpqb",
+    "content": "OK: wrote /reports_2026/sales.txt"
+   }
+  ],
+  "Coder": [
+   {
+    "role": "system",
+    "content": "You are Coder, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Save 'costs' as costs.txt in the team's reports folder. If you are unsure of the folder's exact name, read /README.txt first."
+   },
+   {
+    "role": "assistant",
+    "content": "First, I will read the README.txt file to determine the team's reports folder name.\n",
+    "tool_calls": [
+     {
+      "id": "call_cf723zzl",
+      "type": "function",
+      "function": {
+       "name": "read_file",
+       "arguments": "{\"path\":\"/README.txt\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_cf723zzl",
+    "content": "OK: The team's reports folder is /reports_2026"
+   },
+   {
+    "role": "assistant",
+    "content": "Now that I know the team's reports folder is /reports_2026, I will save the string 'costs' as a file named costs.txt in that directory.\n",
+    "tool_calls": [
+     {
+      "id": "call_xutwayao",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"content\":\"costs\",\"path\":\"/reports_2026/costs.txt\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_xutwayao",
+    "content": "OK: wrote /reports_2026/costs.txt"
+   }
+  ],
+  "Planner": [
+   {
+    "role": "system",
+    "content": "You are Planner, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Save 'plan' as plan.txt in the team's reports folder. If you are unsure of the folder's exact name, read /README.txt first."
+   },
+   {
+    "role": "assistant",
+    "content": "First, I will read the README.txt file to determine the correct folder name for the reports.\n",
+    "tool_calls": [
+     {
+      "id": "call_me4ljbqf",
+      "type": "function",
+      "function": {
+       "name": "read_file",
+       "arguments": "{\"path\":\"/README.txt\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_me4ljbqf",
+    "content": "OK: The team's reports folder is /reports_2026"
+   },
+   {
+    "role": "assistant",
+    "content": "Now that I know the correct folder name for the reports is /reports_2026, I will save the 'plan' as plan.txt in this folder.\n",
+    "tool_calls": [
+     {
+      "id": "call_w6e3umq4",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"content\":\"plan\",\"path\":\"/reports_2026/plan.txt\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_w6e3umq4",
+    "content": "OK: wrote /reports_2026/plan.txt"
+   }
+  ]
+ }
+}

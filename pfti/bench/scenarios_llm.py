@@ -310,25 +310,34 @@ SCENARIOS_V2 = [
         "name": "retired_endpoint",
         "kind": "reasoning",
         "failure_mode": "NotFound",
-        "world": {"dirs": ["/"], "api_budget": {"/v2/render": 5}},
+        # v2 fix: the endpoint was unguessable in the first v2 run (0/4
+        # models found it). Now it is discoverable from a file, so the
+        # failure is "acting before checking", which real agents do.
+        "world": {"dirs": ["/", "/api"], "api_budget": {"/v2/render": 5},
+                  "files": {"/api/ENDPOINTS.txt":
+                            "render (current, v2): /v2/render\n"
+                            "render (v1, retired): /render"}},
         "agents": [
             {"id": "Planner",
              "task": "Render job1 with the render API (payload 'job1'). The "
-                     "render API was moved to version 2 last month.",
+                     "render API was moved to version 2 last month; the endpoint "
+                     "list is in /api/ENDPOINTS.txt.",
              "script": {"primary": ["call_api", {"endpoint": "/render",
                                                  "payload": "job1"}],
                         "alt": ["call_api", {"endpoint": "/v2/render",
                                              "payload": "job1"}]}},
             {"id": "Coder",
              "task": "Render job2 with the render API (payload 'job2'). The "
-                     "render API was moved to version 2 last month.",
+                     "render API was moved to version 2 last month; the endpoint "
+                     "list is in /api/ENDPOINTS.txt.",
              "script": {"primary": ["call_api", {"endpoint": "/render",
                                                  "payload": "job2"}],
                         "alt": ["call_api", {"endpoint": "/v2/render",
                                              "payload": "job2"}]}},
             {"id": "FileOps",
              "task": "Render job3 with the render API (payload 'job3'). The "
-                     "render API was moved to version 2 last month.",
+                     "render API was moved to version 2 last month; the endpoint "
+                     "list is in /api/ENDPOINTS.txt.",
              "script": {"primary": ["call_api", {"endpoint": "/render",
                                                  "payload": "job3"}],
                         "alt": ["call_api", {"endpoint": "/v2/render",
@@ -340,13 +349,18 @@ SCENARIOS_V2 = [
         "name": "guess_dir",
         "kind": "reasoning",
         "failure_mode": "NotFound",
+        # v2 fix: list_dir only lists FILES, so the folder was
+        # undiscoverable in the first v2 run (0/4 models). Now a README in
+        # the root names it (and shows up in list_dir('/')).
         "world": {"dirs": ["/", "/reports_2026"],
-                  "perm": {"/reports_2026": "rw"}},
+                  "perm": {"/reports_2026": "rw"},
+                  "files": {"/README.txt":
+                            "The team's reports folder is /reports_2026"}},
         "agents": [
             {"id": "FileOps",
              "task": "Save 'sales' as sales.txt in the team's reports "
-                     "folder. Use list_dir('/') if you are unsure of the "
-                     "folder's exact name.",
+                     "folder. If you are unsure of the folder's exact name, "
+                     "read /README.txt first.",
              "script": {"primary": ["write_file",
                                     {"path": "/reports/sales.txt",
                                      "content": "sales"}],
@@ -355,8 +369,8 @@ SCENARIOS_V2 = [
                                  "content": "sales"}]}},
             {"id": "Coder",
              "task": "Save 'costs' as costs.txt in the team's reports "
-                     "folder. Use list_dir('/') if you are unsure of the "
-                     "folder's exact name.",
+                     "folder. If you are unsure of the folder's exact name, "
+                     "read /README.txt first.",
              "script": {"primary": ["write_file",
                                     {"path": "/reports/costs.txt",
                                      "content": "costs"}],
@@ -365,8 +379,8 @@ SCENARIOS_V2 = [
                                  "content": "costs"}]}},
             {"id": "Planner",
              "task": "Save 'plan' as plan.txt in the team's reports "
-                     "folder. Use list_dir('/') if you are unsure of the "
-                     "folder's exact name.",
+                     "folder. If you are unsure of the folder's exact name, "
+                     "read /README.txt first.",
              "script": {"primary": ["write_file",
                                     {"path": "/reports/plan.txt",
                                      "content": "plan"}],
@@ -386,4 +400,5 @@ SCENARIO_SETS = {
     "v1": SCENARIOS,
     "v2": SCENARIOS_V2,
     "all": SCENARIOS + SCENARIOS_V2,
+    "reasoning": [s for s in SCENARIOS_V2 if s["kind"] == "reasoning"],
 }

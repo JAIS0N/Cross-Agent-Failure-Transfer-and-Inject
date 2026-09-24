@@ -94,11 +94,45 @@ class _Counters:
         self.peer_doomed_executed = 0  # ...and the call was actually executed
         self.fail_classes = []    # (agent, tool, error_class) of executed failures
         self.transcripts = {}     # agent -> message list (only if keep_transcripts)
+        self.text_calls = 0       # tool calls written as plain text (not real calls)
+
+
+class _TextCall:
+    """A tool call the model wrote as plain text instead of a real call."""
+    def __init__(self, cid, name, arguments):
+        self.id = cid
+        self.function = type("F", (), {"name": name, "arguments": arguments})()
+
+
+def parse_text_call(content):
+    """Find a tool call written as JSON text, e.g.
+    {"name": "query_db", "parameters": {"table": "users"}}  (llama3.1 does
+    this, mostly right after a warning). Returns (name, args) or None."""
+    if not content:
+        return None
+    dec = json.JSONDecoder()
+    i = content.find("{")
+    while i != -1:
+        try:
+            obj, _ = dec.raw_decode(content[i:])
+        except ValueError:
+            obj = None
+        if isinstance(obj, dict) and obj.get("name") in TOOLS:
+            args = obj.get("parameters", obj.get("arguments", {}))
+            if isinstance(args, str):
+                try:
+                    args = json.loads(args)
+                except ValueError:
+                    args = {}
+            if isinstance(args, dict):
+                return obj["name"], args
+        i = content.find("{", i + 1)
+    return None
 
 
 def _run_agent(client, model, agent, task, script, world, store, matcher,
                logger, mode, level, ctr, episode, step0, use_fake,
-               max_turns=8, keep_transcripts=False):
+               max_turns=8, keep_transcripts=False, parse_text_calls=False):
     # the fake needs the embedded script; a real model must not see it
     if use_fake:
         user_task = strip_script(task) + "\n<<<PFTI_SCRIPT " + \
@@ -117,15 +151,27 @@ def _run_agent(client, model, agent, task, script, world, store, matcher,
         ctr.c_tok += c
         m = resp.choices[0].message
         tool_calls = getattr(m, "tool_calls", None)
-        if not tool_calls:
+        text_call = None if tool_calls else parse_text_call(m.content)
+        if text_call:
+            # always counted; only executed with parse_text_calls=True
+            ctr.text_calls += 1
+        if not tool_calls and not (text_call and parse_text_calls):
             if m.content and "DONE" in m.content.upper():
                 break
             msgs.append({"role": "assistant", "content": m.content or ""})
             continue
 
-        # keep the assistant message (with its tool_calls) in history
-        msgs.append(_assistant_to_dict(m))
-        tc = tool_calls[0]  # one call at a time
+        if tool_calls:
+            # keep the assistant message (with its tool_calls) in history
+            msgs.append(_assistant_to_dict(m))
+            tc = tool_calls[0]  # one call at a time
+        else:
+            tname, targs = text_call
+            tc = _TextCall(f"textcall_{ctr.text_calls}", tname, json.dumps(targs))
+            msgs.append({"role": "assistant", "content": m.content or "",
+                         "tool_calls": [{"id": tc.id, "type": "function",
+                                         "function": {"name": tname,
+                                                      "arguments": tc.function.arguments}}]})
         name = tc.function.name
         try:
             args = json.loads(tc.function.arguments or "{}")
@@ -262,7 +308,7 @@ def _apply_world_event(world, ev):
 
 def run_scenario(scenario, mode, client, model, level="mid",
                  match_mode="subsumption", use_fake=False, logger=None,
-                 keep_transcripts=False):
+                 keep_transcripts=False, parse_text_calls=False):
     world = World(**scenario["world"])
     store = FailureStore(scope="episode")
     matcher = Matcher(level=level, mode=match_mode)
@@ -274,7 +320,8 @@ def run_scenario(scenario, mode, client, model, level="mid",
     for idx, a in enumerate(scenario["agents"]):
         step = _run_agent(client, model, a["id"], a["task"], a.get("script"),
                           world, store, matcher, logger, mode, level, ctr, ep,
-                          step, use_fake, keep_transcripts=keep_transcripts)
+                          step, use_fake, keep_transcripts=keep_transcripts,
+                          parse_text_calls=parse_text_calls)
         if idx in events:
             _apply_world_event(world, events[idx])
     return {
@@ -291,6 +338,7 @@ def run_scenario(scenario, mode, client, model, level="mid",
         "doomed_attempts": ctr.doomed_attempts,
         "peer_doomed_attempts": ctr.peer_doomed,
         "peer_doomed_executed": ctr.peer_doomed_executed,
+        "text_calls": ctr.text_calls,
         "events": list(logger.events),
         "transcripts": ctr.transcripts,
     }

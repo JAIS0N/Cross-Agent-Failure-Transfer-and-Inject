@@ -1,0 +1,28 @@
+{
+  "fake": false,
+  "models": [
+    "qwen2.5:3b",
+    "qwen2.5:7b",
+    "qwen2.5:14b",
+    "llama3.1:8b"
+  ],
+  "level": "mid",
+  "repeats": 1,
+  "seconds": 2453.4,
+  "scenario_set": "all",
+  "scenarios": [
+    "perm_denied",
+    "notfound_dir",
+    "rate_limit",
+    "quota",
+    "missing_table",
+    "prefix_collision",
+    "quota_small_ok",
+    "stale_ratelimit",
+    "stale_perm_control",
+    "retired_endpoint",
+    "guess_dir"
+  ],
+  "save_traces": true,
+  "timestamp": "2026-09-22 20:18:15"
+}

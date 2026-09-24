@@ -1,0 +1,548 @@
+{
+ "model": "llama3.1:8b",
+ "mode": "inject",
+ "scenario": "missing_table",
+ "repeat": 0,
+ "success": true,
+ "failures": 1,
+ "repeated_peer_failures": 0,
+ "warnings_delivered": 2,
+ "ignored_warnings": 0,
+ "total_tokens": 7888,
+ "held_tp": 2,
+ "held_fp": 0,
+ "doomed_attempts": 3,
+ "peer_doomed_attempts": 2,
+ "peer_doomed_executed": 0,
+ "text_calls": 2,
+ "events": [
+  {
+   "episode": "missing_table[llama3.1:8b/inject]",
+   "step": 1,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "query_db",
+   "args": {
+    "table": "accounts",
+    "query": "SELECT * FROM accounts"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "query:str,table:str"
+    ],
+    [
+     "query",
+     "select * from accounts"
+    ],
+    [
+     "table",
+     "accounts"
+    ],
+    [
+     "tool",
+     "query_db"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "missing_table[llama3.1:8b/inject]",
+   "step": 1,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "query_db",
+   "args": {
+    "table": "accounts",
+    "query": "SELECT * FROM accounts"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "query:str,table:str"
+    ],
+    [
+     "query",
+     "select * from accounts"
+    ],
+    [
+     "table",
+     "accounts"
+    ],
+    [
+     "tool",
+     "query_db"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "NotFound"
+  },
+  {
+   "episode": "missing_table[llama3.1:8b/inject]",
+   "step": 2,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "query_db",
+   "args": {
+    "query": "SELECT * FROM users",
+    "table": "users"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "query:str,table:str"
+    ],
+    [
+     "query",
+     "select * from users"
+    ],
+    [
+     "table",
+     "users"
+    ],
+    [
+     "tool",
+     "query_db"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "missing_table[llama3.1:8b/inject]",
+   "step": 2,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "query_db",
+   "args": {
+    "query": "SELECT * FROM users",
+    "table": "users"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "query:str,table:str"
+    ],
+    [
+     "query",
+     "select * from users"
+    ],
+    [
+     "table",
+     "users"
+    ],
+    [
+     "tool",
+     "query_db"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "missing_table[llama3.1:8b/inject]",
+   "step": 3,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "query_db",
+   "args": {
+    "table": "accounts",
+    "query": "SELECT * FROM accounts"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "query:str,table:str"
+    ],
+    [
+     "query",
+     "select * from accounts"
+    ],
+    [
+     "table",
+     "accounts"
+    ],
+    [
+     "tool",
+     "query_db"
+    ]
+   ],
+   "would_warn": true,
+   "warned": true,
+   "matched_record_id": [
+    0
+   ],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "missing_table[llama3.1:8b/inject]",
+   "step": 4,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "query_db",
+   "args": {
+    "query": "SELECT * FROM users",
+    "table": "users"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "query:str,table:str"
+    ],
+    [
+     "query",
+     "select * from users"
+    ],
+    [
+     "table",
+     "users"
+    ],
+    [
+     "tool",
+     "query_db"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "missing_table[llama3.1:8b/inject]",
+   "step": 4,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "query_db",
+   "args": {
+    "query": "SELECT * FROM users",
+    "table": "users"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "query:str,table:str"
+    ],
+    [
+     "query",
+     "select * from users"
+    ],
+    [
+     "table",
+     "users"
+    ],
+    [
+     "tool",
+     "query_db"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  },
+  {
+   "episode": "missing_table[llama3.1:8b/inject]",
+   "step": 5,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "query_db",
+   "args": {
+    "table": "accounts",
+    "query": "SELECT * FROM accounts"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "query:str,table:str"
+    ],
+    [
+     "query",
+     "select * from accounts"
+    ],
+    [
+     "table",
+     "accounts"
+    ],
+    [
+     "tool",
+     "query_db"
+    ]
+   ],
+   "would_warn": true,
+   "warned": true,
+   "matched_record_id": [
+    0
+   ],
+   "oracle_would_fail": "NotFound"
+  },
+  {
+   "episode": "missing_table[llama3.1:8b/inject]",
+   "step": 6,
+   "agent": "Planner",
+   "event_type": "pre_call",
+   "tool": "query_db",
+   "args": {
+    "query": "SELECT * FROM users",
+    "table": "users"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "query:str,table:str"
+    ],
+    [
+     "query",
+     "select * from users"
+    ],
+    [
+     "table",
+     "users"
+    ],
+    [
+     "tool",
+     "query_db"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "missing_table[llama3.1:8b/inject]",
+   "step": 6,
+   "agent": "Planner",
+   "event_type": "post_call",
+   "tool": "query_db",
+   "args": {
+    "query": "SELECT * FROM users",
+    "table": "users"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "query:str,table:str"
+    ],
+    [
+     "query",
+     "select * from users"
+    ],
+    [
+     "table",
+     "users"
+    ],
+    [
+     "tool",
+     "query_db"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  }
+ ],
+ "transcripts": {
+  "Coder": [
+   {
+    "role": "system",
+    "content": "You are Coder, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Query the 'accounts' table for the report. If that table does not exist, query the 'users' table instead."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_v5co0dpg",
+      "type": "function",
+      "function": {
+       "name": "query_db",
+       "arguments": "{\"table\":\"accounts\",\"query\":\"SELECT * FROM accounts\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_v5co0dpg",
+    "content": "ERROR NotFound: table accounts does not exist"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_xclucxed",
+      "type": "function",
+      "function": {
+       "name": "query_db",
+       "arguments": "{\"query\":\"SELECT * FROM users\",\"table\":\"users\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_xclucxed",
+    "content": "OK: [{'table': 'users', 'row': 1}]"
+   },
+   {
+    "role": "assistant",
+    "content": "The 'users' table exists and has one row."
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   },
+   {
+    "role": "assistant",
+    "content": "The report for the 'users' table is:\n\n| table | row |\n| --- | --- |\n| users | 1 |"
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   }
+  ],
+  "FileOps": [
+   {
+    "role": "system",
+    "content": "You are FileOps, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Query the 'accounts' table for the export. If that table does not exist, query the 'users' table instead."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_wvmacf35",
+      "type": "function",
+      "function": {
+       "name": "query_db",
+       "arguments": "{\"table\":\"accounts\",\"query\":\"SELECT * FROM accounts\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_wvmacf35",
+    "content": "!! PEER FAILURE WARNING\nAgent Coder attempted query_db with a matching pattern (arg_types=query:str,table:str, table=accounts, tool=query_db)\nat step 1 and failed with NotFound: \"table accounts does not exist\".\nConsider: (a) verifying the precondition first, (b) an alternative\ntool/approach, or (c) proceeding only if your situation differs.\n[This call was NOT executed. Reconsider: choose a verified alternative, or repeat the call to proceed anyway.]"
+   },
+   {
+    "role": "assistant",
+    "content": "Since the 'accounts' table does not exist, I will query the 'users' table instead.\n\n{\"name\": \"query_db\", \"parameters\": {\"query\":\"SELECT * FROM users\",\"table\":\"users\"}}",
+    "tool_calls": [
+     {
+      "id": "textcall_1",
+      "type": "function",
+      "function": {
+       "name": "query_db",
+       "arguments": "{\"query\": \"SELECT * FROM users\", \"table\": \"users\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "textcall_1",
+    "content": "OK: [{'table': 'users', 'row': 1}]"
+   },
+   {
+    "role": "assistant",
+    "content": "The 'users' table exists and has one row."
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   },
+   {
+    "role": "assistant",
+    "content": "The query for the 'accounts' table failed because it does not exist, so the query for the 'users' table was executed instead. The 'users' table has one row."
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   }
+  ],
+  "Planner": [
+   {
+    "role": "system",
+    "content": "You are Planner, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Query the 'accounts' table for the summary. If that table does not exist, query the 'users' table instead."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_96yf4ec4",
+      "type": "function",
+      "function": {
+       "name": "query_db",
+       "arguments": "{\"table\":\"accounts\",\"query\":\"SELECT * FROM accounts\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_96yf4ec4",
+    "content": "!! PEER FAILURE WARNING\nAgent Coder attempted query_db with a matching pattern (arg_types=query:str,table:str, table=accounts, tool=query_db)\nat step 1 and failed with NotFound: \"table accounts does not exist\".\nConsider: (a) verifying the precondition first, (b) an alternative\ntool/approach, or (c) proceeding only if your situation differs.\n[This call was NOT executed. Reconsider: choose a verified alternative, or repeat the call to proceed anyway.]"
+   },
+   {
+    "role": "assistant",
+    "content": "Since the 'accounts' table does not exist, I will query the 'users' table instead.\n\n{\"name\": \"query_db\", \"parameters\": {\"query\":\"SELECT * FROM users\",\"table\":\"users\"}}",
+    "tool_calls": [
+     {
+      "id": "textcall_2",
+      "type": "function",
+      "function": {
+       "name": "query_db",
+       "arguments": "{\"query\": \"SELECT * FROM users\", \"table\": \"users\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "textcall_2",
+    "content": "OK: [{'table': 'users', 'row': 1}]"
+   },
+   {
+    "role": "assistant",
+    "content": "The 'users' table exists and has one row."
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   },
+   {
+    "role": "assistant",
+    "content": "Since the 'accounts' table does not exist, the summary of the 'accounts' table is not available. However, the summary of the 'users' table is available, which is:\n\n1 row in the 'users' table."
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   },
+   {
+    "role": "assistant",
+    "content": "This is the summary of the 'users' table."
+   },
+   {
+    "role": "assistant",
+    "content": ""
+   }
+  ]
+ }
+}

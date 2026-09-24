@@ -36,11 +36,13 @@ def _default_models():
 
 SUM_KEYS = ("failures", "repeated_peer_failures", "warnings_delivered",
             "ignored_warnings", "total_tokens", "held_tp", "held_fp",
-            "doomed_attempts", "peer_doomed_attempts", "peer_doomed_executed")
+            "doomed_attempts", "peer_doomed_attempts", "peer_doomed_executed",
+            "text_calls")
 
 
 def _run_core(models, use_fake, client, level, repeats, scenarios=None,
-              trace_dir=None, modes=("off", "shadow", "inject")):
+              trace_dir=None, modes=("off", "shadow", "inject"),
+              parse_text_calls=False):
     """Run the core matrix, repeating each cell `repeats` times.
 
     Per-scenario and per-repeat results are kept (not just success counts)
@@ -64,7 +66,8 @@ def _run_core(models, use_fake, client, level, repeats, scenarios=None,
                         r = run_scenario(sc, mode, client, model, level=level,
                                          use_fake=use_fake,
                                          logger=TraceLogger(),
-                                         keep_transcripts=trace_dir is not None)
+                                         keep_transcripts=trace_dir is not None,
+                                         parse_text_calls=parse_text_calls)
                         acc["n_scenarios"] += 1
                         acc["n_success"] += int(r["success"])
                         for k in SUM_KEYS:
@@ -108,6 +111,7 @@ def _run_core(models, use_fake, client, level, repeats, scenarios=None,
                   f"fails={acc['failures']:>3} peer={acc['repeated_peer_failures']:>3} "
                   f"warn={acc['warnings_delivered']:>3} "
                   f"held tp/fp={acc['held_tp']}/{acc['held_fp']} "
+                  f"textcalls={acc['text_calls']} "
                   f"ign={acc['ignored_warnings']:>3} "
                   f"tok={acc['total_tokens']:>7} "
                   f"P/R={sh['precision']:.2f}/{sh['recall']:.2f}{tag}",
@@ -144,6 +148,9 @@ def main(argv=None):
     ap.add_argument("--save-traces", action="store_true",
                     help="save every scenario run's events + transcripts")
     ap.add_argument("--no-routing", action="store_true")
+    ap.add_argument("--parse-text-calls", action="store_true",
+                    help="also execute tool calls a model writes as JSON text "
+                         "(llama3.1 does this after warnings); same in every mode")
     args = ap.parse_args(argv)
     scen = SCENARIO_SETS[args.scenarios]
 
@@ -177,7 +184,8 @@ def main(argv=None):
         trace_dir = out / "traces"
         trace_dir.mkdir(exist_ok=True)
     core = _run_core(models, args.fake, client, args.level, args.repeats,
-                     scenarios=scen, trace_dir=trace_dir)
+                     scenarios=scen, trace_dir=trace_dir,
+                     parse_text_calls=args.parse_text_calls)
 
     if args.no_routing:
         routing = {"rows": [], "error": "skipped (--no-routing)"}
@@ -190,6 +198,7 @@ def main(argv=None):
             "scenario_set": args.scenarios,
             "scenarios": [s["name"] for s in scen],
             "save_traces": args.save_traces,
+            "parse_text_calls": args.parse_text_calls,
             "timestamp": time.strftime("%Y-%m-%d %H:%M:%S")}
 
     (out / "core_matrix.json").write_text(json.dumps(core, indent=2),

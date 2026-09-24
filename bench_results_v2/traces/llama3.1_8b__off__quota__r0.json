@@ -1,0 +1,932 @@
+{
+ "model": "llama3.1:8b",
+ "mode": "off",
+ "scenario": "quota",
+ "repeat": 0,
+ "success": true,
+ "failures": 8,
+ "repeated_peer_failures": 0,
+ "warnings_delivered": 0,
+ "ignored_warnings": 0,
+ "total_tokens": 4477,
+ "held_tp": 0,
+ "held_fp": 0,
+ "doomed_attempts": 8,
+ "peer_doomed_attempts": 0,
+ "peer_doomed_executed": 0,
+ "events": [
+  {
+   "episode": "quota[llama3.1:8b/off]",
+   "step": 1,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/tmp/a.txt",
+    "content": "query_db(table='full_dataset_dump', query='SELECT * FROM full_dataset_dump')"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/a.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "QuotaExceeded"
+  },
+  {
+   "episode": "quota[llama3.1:8b/off]",
+   "step": 1,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/tmp/a.txt",
+    "content": "query_db(table='full_dataset_dump', query='SELECT * FROM full_dataset_dump')"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/a.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "QuotaExceeded"
+  },
+  {
+   "episode": "quota[llama3.1:8b/off]",
+   "step": 2,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "content": "query_db(table='full_dataset_dump', query='SELECT * FROM full_dataset_dump LIMIT 1000')",
+    "path": "/tmp/a.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/a.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "QuotaExceeded"
+  },
+  {
+   "episode": "quota[llama3.1:8b/off]",
+   "step": 2,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "content": "query_db(table='full_dataset_dump', query='SELECT * FROM full_dataset_dump LIMIT 1000')",
+    "path": "/tmp/a.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/a.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "QuotaExceeded"
+  },
+  {
+   "episode": "quota[llama3.1:8b/off]",
+   "step": 3,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "content": "query_db(table='full_dataset_dump', query='SELECT * FROM full_dataset_dump LIMIT 1000, 500')",
+    "path": "/tmp/a.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/a.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "QuotaExceeded"
+  },
+  {
+   "episode": "quota[llama3.1:8b/off]",
+   "step": 3,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "content": "query_db(table='full_dataset_dump', query='SELECT * FROM full_dataset_dump LIMIT 1000, 500')",
+    "path": "/tmp/a.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/a.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "QuotaExceeded"
+  },
+  {
+   "episode": "quota[llama3.1:8b/off]",
+   "step": 4,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/tmp/a.txt",
+    "content": "query_db(table='full_dataset_dump', query='SELECT * FROM full_dataset_dump LIMIT 1000, 500, 200')"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/a.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "QuotaExceeded"
+  },
+  {
+   "episode": "quota[llama3.1:8b/off]",
+   "step": 4,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/tmp/a.txt",
+    "content": "query_db(table='full_dataset_dump', query='SELECT * FROM full_dataset_dump LIMIT 1000, 500, 200')"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/a.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "QuotaExceeded"
+  },
+  {
+   "episode": "quota[llama3.1:8b/off]",
+   "step": 5,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "content": "query_db(table='full_dataset_dump', query='SELECT * FROM full_dataset_dump LIMIT 1000, 500, 200, 100')",
+    "path": "/tmp/a.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/a.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "med"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "QuotaExceeded"
+  },
+  {
+   "episode": "quota[llama3.1:8b/off]",
+   "step": 5,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "content": "query_db(table='full_dataset_dump', query='SELECT * FROM full_dataset_dump LIMIT 1000, 500, 200, 100')",
+    "path": "/tmp/a.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/a.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "med"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "QuotaExceeded"
+  },
+  {
+   "episode": "quota[llama3.1:8b/off]",
+   "step": 6,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "content": "query_db(table='full_dataset_dump', query='SELECT * FROM full_dataset_dump LIMIT 1000, 500, 200, 100, 50')",
+    "path": "/tmp/a.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/a.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "med"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "QuotaExceeded"
+  },
+  {
+   "episode": "quota[llama3.1:8b/off]",
+   "step": 6,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "content": "query_db(table='full_dataset_dump', query='SELECT * FROM full_dataset_dump LIMIT 1000, 500, 200, 100, 50')",
+    "path": "/tmp/a.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/a.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "med"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "QuotaExceeded"
+  },
+  {
+   "episode": "quota[llama3.1:8b/off]",
+   "step": 7,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "content": "query_db(table='full_dataset_dump', query='SELECT * FROM full_dataset_dump LIMIT 1000, 500, 200, 100, 50, 20')",
+    "path": "/tmp/a.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/a.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "med"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "QuotaExceeded"
+  },
+  {
+   "episode": "quota[llama3.1:8b/off]",
+   "step": 7,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "content": "query_db(table='full_dataset_dump', query='SELECT * FROM full_dataset_dump LIMIT 1000, 500, 200, 100, 50, 20')",
+    "path": "/tmp/a.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/a.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "med"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "QuotaExceeded"
+  },
+  {
+   "episode": "quota[llama3.1:8b/off]",
+   "step": 8,
+   "agent": "FileOps",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "content": "query_db(table='full_dataset_dump', query='SELECT * FROM full_dataset_dump LIMIT 1000, 500, 200, 100, 50, 20, 10')",
+    "path": "/tmp/a.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/a.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "med"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": "QuotaExceeded"
+  },
+  {
+   "episode": "quota[llama3.1:8b/off]",
+   "step": 8,
+   "agent": "FileOps",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "content": "query_db(table='full_dataset_dump', query='SELECT * FROM full_dataset_dump LIMIT 1000, 500, 200, 100, 50, 20, 10')",
+    "path": "/tmp/a.txt"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/a.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "med"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "fail",
+   "error_class": "QuotaExceeded"
+  },
+  {
+   "episode": "quota[llama3.1:8b/off]",
+   "step": 9,
+   "agent": "Coder",
+   "event_type": "pre_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/tmp/b.txt",
+    "content": "complete bundle"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/b.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "would_warn": false,
+   "warned": false,
+   "matched_record_id": [],
+   "oracle_would_fail": null
+  },
+  {
+   "episode": "quota[llama3.1:8b/off]",
+   "step": 9,
+   "agent": "Coder",
+   "event_type": "post_call",
+   "tool": "write_file",
+   "args": {
+    "path": "/tmp/b.txt",
+    "content": "complete bundle"
+   },
+   "signature": [
+    [
+     "arg_types",
+     "content:str,path:str"
+    ],
+    [
+     "path",
+     "/tmp/b.txt"
+    ],
+    [
+     "path_prefix",
+     "/tmp"
+    ],
+    [
+     "perm",
+     "rw"
+    ],
+    [
+     "size_bucket",
+     "small"
+    ],
+    [
+     "tool",
+     "write_file"
+    ]
+   ],
+   "outcome": "ok",
+   "error_class": null
+  }
+ ],
+ "transcripts": {
+  "FileOps": [
+   {
+    "role": "system",
+    "content": "You are FileOps, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Save the full dataset dump to /tmp/a.txt. Prefer the complete dump; if the disk quota is exceeded, save a compact version instead."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_d03rcyto",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"path\":\"/tmp/a.txt\",\"content\":\"query_db(table='full_dataset_dump', query='SELECT * FROM full_dataset_dump')\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_d03rcyto",
+    "content": "ERROR QuotaExceeded: disk quota exceeded"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_wpydd6iw",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"content\":\"query_db(table='full_dataset_dump', query='SELECT * FROM full_dataset_dump LIMIT 1000')\",\"path\":\"/tmp/a.txt\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_wpydd6iw",
+    "content": "ERROR QuotaExceeded: disk quota exceeded"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_arpr97iw",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"content\":\"query_db(table='full_dataset_dump', query='SELECT * FROM full_dataset_dump LIMIT 1000, 500')\",\"path\":\"/tmp/a.txt\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_arpr97iw",
+    "content": "ERROR QuotaExceeded: disk quota exceeded"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_1xga0bwv",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"path\":\"/tmp/a.txt\",\"content\":\"query_db(table='full_dataset_dump', query='SELECT * FROM full_dataset_dump LIMIT 1000, 500, 200')\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_1xga0bwv",
+    "content": "ERROR QuotaExceeded: disk quota exceeded"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_gcl3gcx3",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"content\":\"query_db(table='full_dataset_dump', query='SELECT * FROM full_dataset_dump LIMIT 1000, 500, 200, 100')\",\"path\":\"/tmp/a.txt\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_gcl3gcx3",
+    "content": "ERROR QuotaExceeded: disk quota exceeded"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_ny4tit0g",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"content\":\"query_db(table='full_dataset_dump', query='SELECT * FROM full_dataset_dump LIMIT 1000, 500, 200, 100, 50')\",\"path\":\"/tmp/a.txt\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_ny4tit0g",
+    "content": "ERROR QuotaExceeded: disk quota exceeded"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_hr3zucet",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"content\":\"query_db(table='full_dataset_dump', query='SELECT * FROM full_dataset_dump LIMIT 1000, 500, 200, 100, 50, 20')\",\"path\":\"/tmp/a.txt\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_hr3zucet",
+    "content": "ERROR QuotaExceeded: disk quota exceeded"
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_rvbr1jsb",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"content\":\"query_db(table='full_dataset_dump', query='SELECT * FROM full_dataset_dump LIMIT 1000, 500, 200, 100, 50, 20, 10')\",\"path\":\"/tmp/a.txt\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_rvbr1jsb",
+    "content": "ERROR QuotaExceeded: disk quota exceeded"
+   }
+  ],
+  "Coder": [
+   {
+    "role": "system",
+    "content": "You are Coder, one agent in a software-ops team that shares a workspace. Complete your task using the provided tools. Make one tool call at a time. If a tool fails, adapt. If a warning about a teammate's failure appears, take it seriously: prefer a verified alternative. Reply with the word DONE when your task is complete."
+   },
+   {
+    "role": "user",
+    "content": "Save the full log bundle to /tmp/b.txt. Prefer the complete bundle; if the disk quota is exceeded, save a compact version instead."
+   },
+   {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+     {
+      "id": "call_mvvgppue",
+      "type": "function",
+      "function": {
+       "name": "write_file",
+       "arguments": "{\"path\":\"/tmp/b.txt\",\"content\":\"complete bundle\"}"
+      }
+     }
+    ]
+   },
+   {
+    "role": "tool",
+    "tool_call_id": "call_mvvgppue",
+    "content": "OK: wrote /tmp/b.txt"
+   }
+  ]
+ }
+}
