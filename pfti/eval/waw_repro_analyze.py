@@ -245,7 +245,10 @@ def main(argv=None):
     with open(os.path.join(out_dir, "analysis.json"), "w", encoding="utf-8") as f:
         json.dump(R, f, indent=1, default=str)
     _figure(out_dir)
-    print(md)
+    # Windows consoles (cp1252) can't print characters like "≥"; the files
+    # above are already written in UTF-8, so only the echo is degraded.
+    enc = getattr(sys.stdout, "encoding", None) or "utf-8"
+    print(md.encode(enc, errors="replace").decode(enc, errors="replace"))
     return 0
 
 

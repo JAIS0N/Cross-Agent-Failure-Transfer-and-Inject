@@ -16,7 +16,8 @@ REM ============================================================
 setlocal
 set HERE=%~dp0
 set PY=%HERE%.venv\Scripts\python.exe
-set LOG=%HERE%waw_repro_log.txt
+set LOG=%HERE%waw_repro_log.txt
+set PYTHONIOENCODING=utf-8
 set MODELS=qwen2.5:3b,qwen2.5:7b,qwen2.5:14b,llama3.1:8b
 cd /d "%HERE%"
 echo ===== WaW repro started %DATE% %TIME% ===== >> "%LOG%"

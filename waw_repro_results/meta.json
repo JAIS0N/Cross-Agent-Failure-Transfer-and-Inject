@@ -1,0 +1,649 @@
+{
+ "models": [
+  "qwen2.5:3b",
+  "qwen2.5:7b",
+  "qwen2.5:14b",
+  "llama3.1:8b"
+ ],
+ "k_screen": 6,
+ "k_test": 6,
+ "min_repro": 2,
+ "temperature": 0.7,
+ "seed": 1,
+ "n_cases": 90,
+ "n_logs": 65,
+ "fake": false,
+ "cases": [
+  {
+   "case_id": "algo/10.json:6",
+   "log": "algo/10.json",
+   "later_ec": "SyntaxError",
+   "code_agent": "Validation_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/100.json:6",
+   "log": "algo/100.json",
+   "later_ec": "NotFound",
+   "code_agent": "StreamingService_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/103.json:4",
+   "log": "algo/103.json",
+   "later_ec": "TypeError",
+   "code_agent": "DataVerification_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/104.json:8",
+   "log": "algo/104.json",
+   "later_ec": "ExecutionError",
+   "code_agent": "DebuggingOptimization_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/107.json:3",
+   "log": "algo/107.json",
+   "later_ec": "NameError",
+   "code_agent": "Bioinformatics_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/108.json:5",
+   "log": "algo/108.json",
+   "later_ec": "TypeError",
+   "code_agent": "DataVerification_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/109.json:4",
+   "log": "algo/109.json",
+   "later_ec": "TypeError",
+   "code_agent": "Grocery_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/109.json:6",
+   "log": "algo/109.json",
+   "later_ec": "NameError",
+   "code_agent": "Geography_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/109.json:8",
+   "log": "algo/109.json",
+   "later_ec": "ReadTimeoutError",
+   "code_agent": "Geography_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/11.json:7",
+   "log": "algo/11.json",
+   "later_ec": "AttributeError",
+   "code_agent": "InformationVerification_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/110.json:4",
+   "log": "algo/110.json",
+   "later_ec": "TypeError",
+   "code_agent": "DataCollection_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/111.json:2",
+   "log": "algo/111.json",
+   "later_ec": "FileNotFoundError",
+   "code_agent": "Verification_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/112.json:1",
+   "log": "algo/112.json",
+   "later_ec": "IndentationError",
+   "code_agent": "HistoricalWeatherData_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/112.json:3",
+   "log": "algo/112.json",
+   "later_ec": "NotFound",
+   "code_agent": "Validation_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/112.json:5",
+   "log": "algo/112.json",
+   "later_ec": "KeyError",
+   "code_agent": "HistoricalWeatherData_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/113.json:4",
+   "log": "algo/113.json",
+   "later_ec": "AttributeError",
+   "code_agent": "Verification_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/116.json:2",
+   "log": "algo/116.json",
+   "later_ec": "FileNotFoundError",
+   "code_agent": "DataManipulation_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/116.json:4",
+   "log": "algo/116.json",
+   "later_ec": "FileNotFoundError",
+   "code_agent": "Verification_Expert",
+   "same_class_failure_in_context": true
+  },
+  {
+   "case_id": "algo/118.json:2",
+   "log": "algo/118.json",
+   "later_ec": "FileNotFoundError",
+   "code_agent": "Statistics_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/118.json:4",
+   "log": "algo/118.json",
+   "later_ec": "ValueError",
+   "code_agent": "Verification_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/119.json:3",
+   "log": "algo/119.json",
+   "later_ec": "ValueError",
+   "code_agent": "VerificationExpert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/120.json:2",
+   "log": "algo/120.json",
+   "later_ec": "ModuleNotFoundError",
+   "code_agent": "Verification_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/120.json:6",
+   "log": "algo/120.json",
+   "later_ec": "ValueError",
+   "code_agent": "Verification_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/122.json:4",
+   "log": "algo/122.json",
+   "later_ec": "NameError",
+   "code_agent": "BingAPI_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/122.json:6",
+   "log": "algo/122.json",
+   "later_ec": "RateLimited",
+   "code_agent": "BingAPI_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/123.json:4",
+   "log": "algo/123.json",
+   "later_ec": "AdapterHTTPError",
+   "code_agent": "Paintball_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/123.json:6",
+   "log": "algo/123.json",
+   "later_ec": "ValueError",
+   "code_agent": "Geospatial_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/124.json:9",
+   "log": "algo/124.json",
+   "later_ec": "NameError",
+   "code_agent": "Research_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/126.json:2",
+   "log": "algo/126.json",
+   "later_ec": "TypeError",
+   "code_agent": "CorporateHistory_IPOs_MondayCom_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/126.json:4",
+   "log": "algo/126.json",
+   "later_ec": "NameError",
+   "code_agent": "CorporateHistory_IPOs_MondayCom_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/13.json:2",
+   "log": "algo/13.json",
+   "later_ec": "TypeError",
+   "code_agent": "Chinese_Zodiac_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/13.json:8",
+   "log": "algo/13.json",
+   "later_ec": "NameError",
+   "code_agent": "Verification_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/15.json:5",
+   "log": "algo/15.json",
+   "later_ec": "NameError",
+   "code_agent": "Boggle_Board_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/16.json:2",
+   "log": "algo/16.json",
+   "later_ec": "KeyError",
+   "code_agent": "Narration_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/17.json:7",
+   "log": "algo/17.json",
+   "later_ec": "NotFound",
+   "code_agent": "Statistics_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/18.json:5",
+   "log": "algo/18.json",
+   "later_ec": "TypeError",
+   "code_agent": "Literature_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/20.json:6",
+   "log": "algo/20.json",
+   "later_ec": "ValueError",
+   "code_agent": "Verification_Expert",
+   "same_class_failure_in_context": true
+  },
+  {
+   "case_id": "algo/23.json:4",
+   "log": "algo/23.json",
+   "later_ec": "NameError",
+   "code_agent": "Church_Historian_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/23.json:6",
+   "log": "algo/23.json",
+   "later_ec": "HTTPError",
+   "code_agent": "DataVerification_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/25.json:2",
+   "log": "algo/25.json",
+   "later_ec": "NameError",
+   "code_agent": "Physics_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/25.json:5",
+   "log": "algo/25.json",
+   "later_ec": "HTTPError",
+   "code_agent": "ModelEvaluation_Interpretation_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/27.json:2",
+   "log": "algo/27.json",
+   "later_ec": "TypeError",
+   "code_agent": "DataVerification_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/28.json:9",
+   "log": "algo/28.json",
+   "later_ec": "UnidentifiedImageError",
+   "code_agent": "DataVerification_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/29.json:5",
+   "log": "algo/29.json",
+   "later_ec": "KeyError",
+   "code_agent": "Validation_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/29.json:9",
+   "log": "algo/29.json",
+   "later_ec": "NameError",
+   "code_agent": "Validation_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/3.json:3",
+   "log": "algo/3.json",
+   "later_ec": "ExecutionError",
+   "code_agent": "Statistics_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/3.json:5",
+   "log": "algo/3.json",
+   "later_ec": "NotFound",
+   "code_agent": "Verification_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/31.json:2",
+   "log": "algo/31.json",
+   "later_ec": "TypeError",
+   "code_agent": "Chinese_Political_History_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/32.json:2",
+   "log": "algo/32.json",
+   "later_ec": "NameError",
+   "code_agent": "SpeciesSightingsData_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/33.json:5",
+   "log": "algo/33.json",
+   "later_ec": "FileNotFoundError",
+   "code_agent": "InformationExtraction_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/36.json:3",
+   "log": "algo/36.json",
+   "later_ec": "ExecutionError",
+   "code_agent": "ProblemSolving_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/40.json:2",
+   "log": "algo/40.json",
+   "later_ec": "NameError",
+   "code_agent": "NumericalAlgorithms_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/44.json:2",
+   "log": "algo/44.json",
+   "later_ec": "TypeError",
+   "code_agent": "WebDevelopment_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/48.json:4",
+   "log": "algo/48.json",
+   "later_ec": "FileNotFoundError",
+   "code_agent": "Geometry_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/49.json:3",
+   "log": "algo/49.json",
+   "later_ec": "ExecutionError",
+   "code_agent": "Validation_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/50.json:4",
+   "log": "algo/50.json",
+   "later_ec": "KeyError",
+   "code_agent": "DataAnalysis_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/59.json:1",
+   "log": "algo/59.json",
+   "later_ec": "AttributeError",
+   "code_agent": "DataExtraction_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/59.json:3",
+   "log": "algo/59.json",
+   "later_ec": "ExecutionError",
+   "code_agent": "DataVerification_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/59.json:5",
+   "log": "algo/59.json",
+   "later_ec": "ExecutionError",
+   "code_agent": "DataExtraction_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/59.json:9",
+   "log": "algo/59.json",
+   "later_ec": "EmptyDataError",
+   "code_agent": "DataAnalysis_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/6.json:2",
+   "log": "algo/6.json",
+   "later_ec": "NotFound",
+   "code_agent": "Literary_Analysis_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/61.json:6",
+   "log": "algo/61.json",
+   "later_ec": "AttributeError",
+   "code_agent": "PythonProgramming_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/61.json:8",
+   "log": "algo/61.json",
+   "later_ec": "NotFound",
+   "code_agent": "PythonProgramming_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/65.json:2",
+   "log": "algo/65.json",
+   "later_ec": "TypeError",
+   "code_agent": "VideoContentAnalysis_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/67.json:3",
+   "log": "algo/67.json",
+   "later_ec": "KeyError",
+   "code_agent": "Verification_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/69.json:2",
+   "log": "algo/69.json",
+   "later_ec": "NameError",
+   "code_agent": "VideoContentAnalysis_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/69.json:6",
+   "log": "algo/69.json",
+   "later_ec": "KeyError",
+   "code_agent": "VideoContentAnalysis_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/7.json:7",
+   "log": "algo/7.json",
+   "later_ec": "NameError",
+   "code_agent": "ScientificPaperAnalysis_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/72.json:5",
+   "log": "algo/72.json",
+   "later_ec": "NameError",
+   "code_agent": "API_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/74.json:5",
+   "log": "algo/74.json",
+   "later_ec": "TypeError",
+   "code_agent": "MerriamWebsterWordOfTheDay_Historian_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/76.json:6",
+   "log": "algo/76.json",
+   "later_ec": "AttributeError",
+   "code_agent": "Validation_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/77.json:7",
+   "log": "algo/77.json",
+   "later_ec": "ModuleNotFoundError",
+   "code_agent": "ResultVerification_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/78.json:2",
+   "log": "algo/78.json",
+   "later_ec": "ExecutionError",
+   "code_agent": "Literature_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/78.json:4",
+   "log": "algo/78.json",
+   "later_ec": "ExecutionError",
+   "code_agent": "Neurology_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/79.json:4",
+   "log": "algo/79.json",
+   "later_ec": "TimeoutError",
+   "code_agent": "MenuAnalysis_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/8.json:1",
+   "log": "algo/8.json",
+   "later_ec": "IndentationError",
+   "code_agent": "Excel_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/83.json:2",
+   "log": "algo/83.json",
+   "later_ec": "ParserError",
+   "code_agent": "DataAnalysis_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/84.json:5",
+   "log": "algo/84.json",
+   "later_ec": "NameError",
+   "code_agent": "Chess_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/85.json:5",
+   "log": "algo/85.json",
+   "later_ec": "TypeError",
+   "code_agent": "DataVerification_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/86.json:1",
+   "log": "algo/86.json",
+   "later_ec": "TimeoutError",
+   "code_agent": "Library_Database_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/87.json:5",
+   "log": "algo/87.json",
+   "later_ec": "NameError",
+   "code_agent": "MusicHistorian_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/88.json:1",
+   "log": "algo/88.json",
+   "later_ec": "IndentationError",
+   "code_agent": "FinancialData_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/88.json:3",
+   "log": "algo/88.json",
+   "later_ec": "FileNotFoundError",
+   "code_agent": "DataValidation_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/88.json:5",
+   "log": "algo/88.json",
+   "later_ec": "FileNotFoundError",
+   "code_agent": "Verification_Expert",
+   "same_class_failure_in_context": true
+  },
+  {
+   "case_id": "algo/89.json:4",
+   "log": "algo/89.json",
+   "later_ec": "AttributeError",
+   "code_agent": "DataAnalysis_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/91.json:1",
+   "log": "algo/91.json",
+   "later_ec": "IndentationError",
+   "code_agent": "Data_Analysis_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/91.json:3",
+   "log": "algo/91.json",
+   "later_ec": "KeyError",
+   "code_agent": "Data_Analysis_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/91.json:7",
+   "log": "algo/91.json",
+   "later_ec": "IndexError",
+   "code_agent": "Data_Analysis_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/95.json:2",
+   "log": "algo/95.json",
+   "later_ec": "NameError",
+   "code_agent": "AcademicPublication_Expert",
+   "same_class_failure_in_context": false
+  },
+  {
+   "case_id": "algo/96.json:2",
+   "log": "algo/96.json",
+   "later_ec": "NameError",
+   "code_agent": "Data_Retrieval_Expert",
+   "same_class_failure_in_context": false
+  }
+ ],
+ "started": "2026-09-23 11:57:53"
+}
