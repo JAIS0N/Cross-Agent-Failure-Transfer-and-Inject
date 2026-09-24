@@ -165,9 +165,3 @@ What to look for when they finish:
 - **waw_repro summary:** first *Screening* (how many cases per model reproduce at all). Then the *Phase 2* table and the *Clustered models* table.
 
 ---
-
-## 5. What goes back to the professor, and when
-
-Now, if you want: the re-analysis in §2 (points 1–8), plus the two new flaws we found ourselves (the collapsed matcher in the Exp 2 case selection, and the inflated 26% / 65% static numbers). Being upfront about those will count in your favour.
-
-After runs 2 and 3: the V2 scenario and harm results, and the reproduction-filtered Exp 2.
