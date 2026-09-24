@@ -1,5 +1,4 @@
-# Responding to Prof. Hailu's review: what he asked, what we found, what changed
-
+# Review of latest results
 This file explains the review so you can follow it in the code without relying on the .bat scripts. Line numbers refer to the files as they are in this commit.
 
 ---
